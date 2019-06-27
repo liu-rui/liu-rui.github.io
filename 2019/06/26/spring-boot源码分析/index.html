@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="版本：2.2.0.BUILD-SNAPSHOT  源码  git@gith  项目结构   spring-boot-project spring-boot spring-boot-actuator spring boot-actuator-autoconfigure spring-boot-autoconfigure spring-boot-cli spring-boot-dependencies">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-06-26T08:48:22.039Z">
+<meta property="og:updated_time" content="2019-06-26T09:50:15.786Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="spring-boot源码分析">
 <meta name="twitter:description" content="版本：2.2.0.BUILD-SNAPSHOT  源码  git@gith  项目结构   spring-boot-project spring-boot spring-boot-actuator spring boot-actuator-autoconfigure spring-boot-autoconfigure spring-boot-cli spring-boot-dependencies">
@@ -249,7 +249,43 @@
 <li>void running(ConfigurableApplicationContext context)</li>
 <li>void failed(ConfigurableApplicationContext context, Throwable exception)</li>
 </ul>
-<p>应用程序事件(SpringApplicationEvent)<br>spring boot 定义了一组应用程序时间的实现类，执行顺序如下：<br>ApplicationStartingEvent<br>ApplicationEnvironmentPreparedEvent<br>ApplicationContextInitializedEvent<br>ApplicationPreparedEvent<br>ApplicationStartedEvent<br>ApplicationReadyEvent<br>ApplicationFailedEvent</p>
+<p>应用程序事件(SpringApplicationEvent)<br>spring boot 定义了一组应用程序时间的实现类，执行顺序如下：</p>
+<table>
+<thead>
+<tr>
+<th>事件</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ApplicationStartingEvent</td>
+<td></td>
+</tr>
+<tr>
+<td>ApplicationEnvironmentPreparedEvent</td>
+<td></td>
+</tr>
+<tr>
+<td>ApplicationContextInitializedEvent</td>
+<td></td>
+</tr>
+<tr>
+<td>ApplicationPreparedEvent</td>
+<td></td>
+</tr>
+<tr>
+<td>ApplicationStartedEvent</td>
+<td></td>
+</tr>
+<tr>
+<td>ApplicationReadyEvent</td>
+<td></td>
+</tr>
+<tr>
+<td>ApplicationFailedEvent</td>
+<td></td>
+</tr>
+</tbody></table>
 <p>ApplicationContextInitializer接口</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">ApplicationContextInitializer</span>&lt;<span class="title">C</span> <span class="keyword">extends</span> <span class="title">ConfigurableApplicationContext</span>&gt; </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">initialize</span><span class="params">(C applicationContext)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -290,7 +326,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/26/spring-boot源码分析/" data-id="cjxd0583g0002ggnnm2s2adqx" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/26/spring-boot源码分析/" data-id="cjxe0cbmf0004xcnnmjcnvyy5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -298,6 +334,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2019/06/27/skywalking部署/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          skywalking部署
+        
+      </div>
+    </a>
   
   
     <a href="/2019/06/19/aa/" id="article-nav-older" class="article-nav-link-wrap">
@@ -337,6 +382,14 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2019/06/27/spring-boot-admin的使用/">spring-boot-admin的使用</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/27/skywalking部署/">skywalking部署</a>
+          </li>
         
           <li>
             <a href="/2019/06/26/spring-boot源码分析/">spring-boot源码分析</a>

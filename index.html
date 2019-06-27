@@ -62,6 +62,143 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-spring-boot-admin的使用" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/06/27/spring-boot-admin的使用/" class="article-date">
+  <time datetime="2019-06-27T01:45:48.000Z" itemprop="datePublished">2019-06-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/06/27/spring-boot-admin的使用/">spring-boot-admin的使用</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>参考</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://www.cnblogs.com/forezp/p/10242004.html</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>简介</p>
+</li>
+</ol>
+<ul>
+<li>共需要建立两个项目：admin-server-demo和admin-client-demo.</li>
+</ul>
+<ol start="3">
+<li>配置admin-server-demo</li>
+</ol>
+<ul>
+<li><p>idea-新建项目-spring initializr</p>
+</li>
+<li><p>选择 web-spring web starter</p>
+</li>
+<li><p>选择 ops-spring boot Actuator和spring boot admin(server)</p>
+</li>
+<li><p>application项目上增加注解@EnableAdminServer</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">@SpringBootApplication</span><br><span class="line">@EnableAdminServer</span><br><span class="line">public class AdminServerDemoApplication &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        SpringApplication.run(AdminServerDemoApplication.class, args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>application.properties配置如下</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">server.port=8081</span><br><span class="line">spring.application.name=admin-server</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>启动项目配置，admin-server-demo配置完成</li>
+</ul>
+<ol start="4">
+<li>配置admin-client-demo</li>
+</ol>
+<ul>
+<li><p>idea-新建项目-spring initializr</p>
+</li>
+<li><p>选择 web-spring web starter</p>
+</li>
+<li><p>选择 ops-spring boot Actuator和spring boot admin(client)</p>
+</li>
+<li><p>添加action</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">@SpringBootApplication</span><br><span class="line">@RestController</span><br><span class="line">public class AdminClientDemoApplication &#123;</span><br><span class="line">    @GetMapping(path = &quot;/a&quot;)</span><br><span class="line">    public String get() &#123;</span><br><span class="line">        return &quot;hello&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        SpringApplication.run(AdminClientDemoApplication.class, args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>application.properties配置如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">server.port=8082</span><br><span class="line">spring.application.name=admin-client</span><br><span class="line">spring.boot.admin.client.url=http://localhost:8081</span><br><span class="line">management.endpoints.web.exposure.include=*</span><br><span class="line">management.endpoint.health.show-details=always</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/06/27/spring-boot-admin的使用/" data-id="cjxe0cbld0002xcnnyhujpdlw" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-skywalking部署" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/06/27/skywalking部署/" class="article-date">
+  <time datetime="2019-06-27T01:44:48.000Z" itemprop="datePublished">2019-06-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/06/27/skywalking部署/">skywalking部署</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>安装版本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">6.1.0</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>下载</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://www.apache.org/dyn/closer.cgi/skywalking/6.1.0/apache-skywalking-apm-6.1.0.zip</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启动服务器端</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/startup.cmd</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启动客户端</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -javaagent:D:\software\apache-skywalking-apm-6.1.0\apache-skywalking-apm-bin\agent\skywalking-agent.jar  -jar demo29-1.0-SNAPSHOT.jar</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>UI</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://localhost:8080   admin/admin</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/06/27/skywalking部署/" data-id="cjxe0cbla0001xcnn9fnmemv1" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-spring-boot源码分析" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/06/26/spring-boot源码分析/" class="article-date">
@@ -247,7 +384,43 @@
 <li>void running(ConfigurableApplicationContext context)</li>
 <li>void failed(ConfigurableApplicationContext context, Throwable exception)</li>
 </ul>
-<p>应用程序事件(SpringApplicationEvent)<br>spring boot 定义了一组应用程序时间的实现类，执行顺序如下：<br>ApplicationStartingEvent<br>ApplicationEnvironmentPreparedEvent<br>ApplicationContextInitializedEvent<br>ApplicationPreparedEvent<br>ApplicationStartedEvent<br>ApplicationReadyEvent<br>ApplicationFailedEvent</p>
+<p>应用程序事件(SpringApplicationEvent)<br>spring boot 定义了一组应用程序时间的实现类，执行顺序如下：</p>
+<table>
+<thead>
+<tr>
+<th>事件</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ApplicationStartingEvent</td>
+<td></td>
+</tr>
+<tr>
+<td>ApplicationEnvironmentPreparedEvent</td>
+<td></td>
+</tr>
+<tr>
+<td>ApplicationContextInitializedEvent</td>
+<td></td>
+</tr>
+<tr>
+<td>ApplicationPreparedEvent</td>
+<td></td>
+</tr>
+<tr>
+<td>ApplicationStartedEvent</td>
+<td></td>
+</tr>
+<tr>
+<td>ApplicationReadyEvent</td>
+<td></td>
+</tr>
+<tr>
+<td>ApplicationFailedEvent</td>
+<td></td>
+</tr>
+</tbody></table>
 <p>ApplicationContextInitializer接口</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">ApplicationContextInitializer</span>&lt;<span class="title">C</span> <span class="keyword">extends</span> <span class="title">ConfigurableApplicationContext</span>&gt; </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">initialize</span><span class="params">(C applicationContext)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -288,7 +461,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/26/spring-boot源码分析/" data-id="cjxd0583g0002ggnnm2s2adqx" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/26/spring-boot源码分析/" data-id="cjxe0cbmf0004xcnnmjcnvyy5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -324,7 +497,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/19/aa/" data-id="cjxd0581y0000ggnnjjzwh4ww" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/19/aa/" data-id="cjxe0cbl60000xcnnzy96ymn3" class="article-share-link">Share</a>
       
       
     </footer>
@@ -373,7 +546,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/19/hello-world/" data-id="cjxd0582a0001ggnns1kzffkp" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/19/hello-world/" data-id="cjxe0cbls0003xcnngxp8jswn" class="article-share-link">Share</a>
       
       
     </footer>
@@ -412,6 +585,14 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2019/06/27/spring-boot-admin的使用/">spring-boot-admin的使用</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/27/skywalking部署/">skywalking部署</a>
+          </li>
         
           <li>
             <a href="/2019/06/26/spring-boot源码分析/">spring-boot源码分析</a>
