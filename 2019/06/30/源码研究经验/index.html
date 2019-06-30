@@ -5,19 +5,20 @@
   
 
   
-  <title>mybatis-plus源码分析 | liu-rui的blog</title>
+  <title>源码研究经验 | liu-rui的blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="信息    源码 https://github.com/baomidou/mybatis-plus    官方实例 https://github.com/baomidou/mybatis-plus-samples   mybatis官网 https://blog.mybatis.org/    https://github.com/mybatis   mybatis源码 https://gith">
+  <meta name="description" content="对源码的研究无论对平时业务的开发还是个人技术水平的成长都会有很大的帮助，技术人员不能光停留在使用的层次，还要懂得背后的原理。 源码的研究需要有耐心，当然也有些方法。本文总结了源码研究的一些方法；  第一步，源码fork到自己的仓库中 fork到自己仓库有几个好处：   可以随时修改代码，添加注释 当官方发生变化的时候，可以与自己仓库对比，发现版本的变化   源码下载到本地，必须编译通过 研究源码，">
+<meta name="keywords" content="源码 经验">
 <meta property="og:type" content="article">
-<meta property="og:title" content="mybatis-plus源码分析">
-<meta property="og:url" content="http://yoursite.com/2019/06/27/mybatis-plus源码分析/index.html">
+<meta property="og:title" content="源码研究经验">
+<meta property="og:url" content="http://yoursite.com/2019/06/30/源码研究经验/index.html">
 <meta property="og:site_name" content="liu-rui的blog">
-<meta property="og:description" content="信息    源码 https://github.com/baomidou/mybatis-plus    官方实例 https://github.com/baomidou/mybatis-plus-samples   mybatis官网 https://blog.mybatis.org/    https://github.com/mybatis   mybatis源码 https://gith">
+<meta property="og:description" content="对源码的研究无论对平时业务的开发还是个人技术水平的成长都会有很大的帮助，技术人员不能光停留在使用的层次，还要懂得背后的原理。 源码的研究需要有耐心，当然也有些方法。本文总结了源码研究的一些方法；  第一步，源码fork到自己的仓库中 fork到自己仓库有几个好处：   可以随时修改代码，添加注释 当官方发生变化的时候，可以与自己仓库对比，发现版本的变化   源码下载到本地，必须编译通过 研究源码，">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-06-28T08:02:37.943Z">
+<meta property="og:updated_time" content="2019-06-30T08:04:07.770Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="mybatis-plus源码分析">
-<meta name="twitter:description" content="信息    源码 https://github.com/baomidou/mybatis-plus    官方实例 https://github.com/baomidou/mybatis-plus-samples   mybatis官网 https://blog.mybatis.org/    https://github.com/mybatis   mybatis源码 https://gith">
+<meta name="twitter:title" content="源码研究经验">
+<meta name="twitter:description" content="对源码的研究无论对平时业务的开发还是个人技术水平的成长都会有很大的帮助，技术人员不能光停留在使用的层次，还要懂得背后的原理。 源码的研究需要有耐心，当然也有些方法。本文总结了源码研究的一些方法；  第一步，源码fork到自己的仓库中 fork到自己仓库有几个好处：   可以随时修改代码，添加注释 当官方发生变化的时候，可以与自己仓库对比，发现版本的变化   源码下载到本地，必须编译通过 研究源码，">
   
     <link rel="alternate" href="/atom.xml" title="liu-rui的blog" type="application/atom+xml">
   
@@ -64,10 +65,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-mybatis-plus源码分析" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-源码研究经验" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/06/27/mybatis-plus源码分析/" class="article-date">
-  <time datetime="2019-06-27T03:25:29.000Z" itemprop="datePublished">2019-06-27</time>
+    <a href="/2019/06/30/源码研究经验/" class="article-date">
+  <time datetime="2019-06-30T03:27:04.000Z" itemprop="datePublished">2019-06-30</time>
 </a>
     
   </div>
@@ -78,7 +79,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      mybatis-plus源码分析
+      源码研究经验
     </h1>
   
 
@@ -86,63 +87,47 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <ol>
-<li><p>信息</p>
-<table>
-<thead>
-<tr>
-<th>源码</th>
-<th><a href="https://github.com/baomidou/mybatis-plus" target="_blank" rel="noopener">https://github.com/baomidou/mybatis-plus</a></th>
-</tr>
-</thead>
-<tbody><tr>
-<td>官方实例</td>
-<td><a href="https://github.com/baomidou/mybatis-plus-samples" target="_blank" rel="noopener">https://github.com/baomidou/mybatis-plus-samples</a></td>
-</tr>
-<tr>
-<td>mybatis官网</td>
-<td><a href="https://blog.mybatis.org/" target="_blank" rel="noopener">https://blog.mybatis.org/</a></td>
-</tr>
-<tr>
-<td></td>
-<td><a href="https://github.com/mybatis" target="_blank" rel="noopener">https://github.com/mybatis</a></td>
-</tr>
-<tr>
-<td>mybatis源码</td>
-<td><a href="https://github.com/mybatis/mybatis-3" target="_blank" rel="noopener">https://github.com/mybatis/mybatis-3</a></td>
-</tr>
-</tbody></table>
-</li>
+        <p>对源码的研究无论对平时业务的开发还是个人技术水平的成长都会有很大的帮助，技术人员不能光停留在使用的层次，还要懂得背后的原理。</p>
+<p>源码的研究需要有耐心，当然也有些方法。本文总结了源码研究的一些方法；</p>
+<ol>
+<li>第一步，源码fork到自己的仓库中 fork到自己仓库有几个好处：</li>
 </ol>
+<ul>
+<li>可以随时修改代码，添加注释</li>
+<li>当官方发生变化的时候，可以与自己仓库对比，发现版本的变化</li>
+</ul>
 <ol start="2">
-<li></li>
+<li><p>源码下载到本地，必须编译通过</p>
+<p>研究源码，却无法编译通过，这等于耍流氓</p>
+</li>
+<li><p>在源码中创建业务代码或功能代码，这样可以使用当前的源码调试</p>
+</li>
+<li><p>研究源码最好的方式就是一步一步的调试</p>
+</li>
+<li><p>源码会有多个版本，只研究当前正在使用的版本；</p>
+</li>
+<li><p>研究源码要有目的性</p>
+</li>
 </ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/27/mybatis-plus源码分析/" data-id="cjxio2rk60000gwnnhdstlbzw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/30/源码研究经验/" data-id="cjxio4np30000b4nn9twooske" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/源码-经验/">源码 经验</a></li></ul>
+
     </footer>
   </div>
   
     
 <nav id="article-nav">
   
-    <a href="/2019/06/28/sharding-jdbc源码分析/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          sharding-jdbc源码分析
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/06/27/spring-boot-admin的使用/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2019/06/28/sharding-jdbc源码分析/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">spring-boot-admin的使用</div>
+      <div class="article-nav-title">sharding-jdbc源码分析</div>
     </a>
   
 </nav>
