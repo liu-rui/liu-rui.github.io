@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>spring源码分析 | liu-rui的blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="简介本课程基于spring,开发工具idea 2019.1    spring源码版本 5.1.x    gradle 5.4.1   IDEA 2019.1   源码地址 https://github.com/spring-projects/spring-framework   官方文档 https://docs.spring.io/spring/docs/5.1.8.RELEASE/sprin">
+<meta name="keywords" content="spring 源码 分析">
+<meta property="og:type" content="article">
+<meta property="og:title" content="spring源码分析">
+<meta property="og:url" content="http://yoursite.com/2019/07/01/spring源码分析/index.html">
+<meta property="og:site_name" content="liu-rui的blog">
+<meta property="og:description" content="简介本课程基于spring,开发工具idea 2019.1    spring源码版本 5.1.x    gradle 5.4.1   IDEA 2019.1   源码地址 https://github.com/spring-projects/spring-framework   官方文档 https://docs.spring.io/spring/docs/5.1.8.RELEASE/sprin">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-07-01T02:00:46.476Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="spring源码分析">
+<meta name="twitter:description" content="简介本课程基于spring,开发工具idea 2019.1    spring源码版本 5.1.x    gradle 5.4.1   IDEA 2019.1   源码地址 https://github.com/spring-projects/spring-framework   官方文档 https://docs.spring.io/spring/docs/5.1.8.RELEASE/sprin">
+  
+    <link rel="alternate" href="/atom.xml" title="liu-rui的blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">liu-rui的blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-spring源码分析" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/07/01/spring源码分析/" class="article-date">
+  <time datetime="2019-07-01T01:32:32.000Z" itemprop="datePublished">2019-07-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      spring源码分析
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>本课程基于spring,开发工具idea 2019.1</p>
+<table>
+<thead>
+<tr>
+<th>spring源码版本</th>
+<th>5.1.x</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>gradle</td>
+<td>5.4.1</td>
+</tr>
+<tr>
+<td>IDEA</td>
+<td>2019.1</td>
+</tr>
+<tr>
+<td>源码地址</td>
+<td><a href="https://github.com/spring-projects/spring-framework" target="_blank" rel="noopener">https://github.com/spring-projects/spring-framework</a></td>
+</tr>
+<tr>
+<td>官方文档</td>
+<td><a href="https://docs.spring.io/spring/docs/5.1.8.RELEASE/spring-framework-reference/" target="_blank" rel="noopener">https://docs.spring.io/spring/docs/5.1.8.RELEASE/spring-framework-reference/</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h4 id="1-安装gradle"><a href="#1-安装gradle" class="headerlink" title="1. 安装gradle"></a>1. 安装gradle</h4><h6 id="1-下载gradle，下载地址为-https-gradle-org-releases-，对应的版本为5-4-1"><a href="#1-下载gradle，下载地址为-https-gradle-org-releases-，对应的版本为5-4-1" class="headerlink" title="1. 下载gradle，下载地址为 https://gradle.org/releases/   ，对应的版本为5.4.1"></a>1. 下载gradle，下载地址为 <a href="https://gradle.org/releases/" target="_blank" rel="noopener">https://gradle.org/releases/</a>   ，对应的版本为5.4.1</h6><h5 id="2-解压"><a href="#2-解压" class="headerlink" title="2. 解压"></a>2. 解压</h5><h5 id="3-配置环境变量"><a href="#3-配置环境变量" class="headerlink" title="3. 配置环境变量"></a>3. 配置环境变量</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">GRADLE_HOME</span><br><span class="line">PATH</span><br></pre></td></tr></table></figure>
+
+<h5 id="4-测试下gradle是否安装成功"><a href="#4-测试下gradle是否安装成功" class="headerlink" title="4. 测试下gradle是否安装成功"></a>4. 测试下gradle是否安装成功</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gradle -v</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-本地编译spring源码"><a href="#1-本地编译spring源码" class="headerlink" title="1. 本地编译spring源码"></a>1. 本地编译spring源码</h4><h5 id="1-fork一份spring源码到自己的仓库"><a href="#1-fork一份spring源码到自己的仓库" class="headerlink" title="1. fork一份spring源码到自己的仓库"></a>1. fork一份spring源码到自己的仓库</h5><h5 id="2-git-clone-到本地"><a href="#2-git-clone-到本地" class="headerlink" title="2. git clone 到本地"></a>2. git clone 到本地</h5><h5 id="3-修改spring源码，解决编译过程中报错的问题"><a href="#3-修改spring源码，解决编译过程中报错的问题" class="headerlink" title="3. 修改spring源码，解决编译过程中报错的问题"></a>3. 修改spring源码，解决编译过程中报错的问题</h5><h6 id="1-修改gradle-docs-gradle文件schemaZip方法"><a href="#1-修改gradle-docs-gradle文件schemaZip方法" class="headerlink" title="1. 修改gradle\docs.gradle文件schemaZip方法"></a>1. 修改gradle\docs.gradle文件schemaZip方法</h6><ul>
+<li>line 151，META-INF/spring.schemas改为META-INF\spring.schemas</li>
+<li>line 158, schemas.get(key)后面增加以下方法，.replaceAll(‘\/‘,’\\‘)<h5 id="3-编译代码"><a href="#3-编译代码" class="headerlink" title="3. 编译代码"></a>3. 编译代码</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gradle build</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>等待编译完成，需要很长的时间</p>
+<h5 id="4-测试下是否编译通过"><a href="#4-测试下是否编译通过" class="headerlink" title="4. 测试下是否编译通过"></a>4. 测试下是否编译通过</h5><h6 id="1-添加模块Demo1，选择Gradle项目-gt-java"><a href="#1-添加模块Demo1，选择Gradle项目-gt-java" class="headerlink" title="1. 添加模块Demo1，选择Gradle项目-&gt; java"></a>1. 添加模块Demo1，选择Gradle项目-&gt; java</h6><h6 id="2-修改项目的build-gradle-增加对spring-context模块的依赖"><a href="#2-修改项目的build-gradle-增加对spring-context模块的依赖" class="headerlink" title="2.  修改项目的build.gradle,增加对spring-context模块的依赖"></a>2.  修改项目的build.gradle,增加对spring-context模块的依赖</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">compile(project(&quot;:spring-context&quot;))</span><br></pre></td></tr></table></figure>
+
+<h6 id="3-修改spring-context模块的spring-context-gradle文件"><a href="#3-修改spring-context模块的spring-context-gradle文件" class="headerlink" title="3.  修改spring-context模块的spring-context.gradle文件"></a>3.  修改spring-context模块的spring-context.gradle文件</h6><p>由于默认配置文件中spring-instrument的引用配置为了optional，造成报错，修改为compile</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">compile(project(&quot;:spring-instrument&quot;))</span><br></pre></td></tr></table></figure>
+
+<h6 id="4-添加App-Java文件，代码如下"><a href="#4-添加App-Java文件，代码如下" class="headerlink" title="4.  添加App.Java文件，代码如下"></a>4.  添加App.Java文件，代码如下</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@ComponentScan</span>(<span class="string">"a"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">App</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		AnnotationConfigApplicationContext applicationContext = <span class="keyword">new</span> AnnotationConfigApplicationContext(App.class);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span> (String beanDefinitionName : applicationContext.getBeanDefinitionNames()) &#123;</span><br><span class="line">			System.out.println(beanDefinitionName);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h6 id="5-添加service-CustomerService-java文件-代码如下"><a href="#5-添加service-CustomerService-java文件-代码如下" class="headerlink" title="5. 添加service/CustomerService.java文件,代码如下"></a>5. 添加service/CustomerService.java文件,代码如下</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CustomerService</span> </span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h6 id="6-运行main函数-输出结果如下"><a href="#6-运行main函数-输出结果如下" class="headerlink" title="6.  运行main函数,输出结果如下"></a>6.  运行main函数,输出结果如下</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">org.springframework.context.annotation.internalConfigurationAnnotationProcessor</span><br><span class="line">org.springframework.context.annotation.internalAutowiredAnnotationProcessor</span><br><span class="line">org.springframework.context.annotation.internalCommonAnnotationProcessor</span><br><span class="line">org.springframework.context.event.internalEventListenerProcessor</span><br><span class="line">org.springframework.context.event.internalEventListenerFactory</span><br><span class="line">app</span><br><span class="line">customerService</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/07/01/spring源码分析/" data-id="cjxjqld5h000508nncmxmycq4" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spring-源码-分析/">spring 源码 分析</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/06/30/源码研究经验/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">源码研究经验</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/skywalking/">skywalking</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring-boot/">spring boot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring-boot-admin/">spring boot admin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring-源码-分析/">spring 源码 分析</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/源码-经验/">源码 经验</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/skywalking/" style="font-size: 10px;">skywalking</a> <a href="/tags/spring-boot/" style="font-size: 10px;">spring boot</a> <a href="/tags/spring-boot-admin/" style="font-size: 10px;">spring boot admin</a> <a href="/tags/spring-源码-分析/" style="font-size: 10px;">spring 源码 分析</a> <a href="/tags/源码-经验/" style="font-size: 10px;">源码 经验</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">六月 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/07/01/spring源码分析/">spring源码分析</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/30/源码研究经验/">源码研究经验</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/28/sharding-jdbc源码分析/">sharding-jdbc源码分析</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/27/mybatis-plus源码分析/">mybatis-plus源码分析</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/27/spring-boot-admin的使用/">spring-boot-admin的使用</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 liu rui<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
