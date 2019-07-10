@@ -15,12 +15,10 @@
 <meta property="og:site_name" content="liu-rui的blog">
 <meta property="og:description" content="简介本课程基于spring,开发工具idea 2019.1    spring源码版本 5.1.x    gradle 5.4.1   IDEA 2019.1   源码地址 https://github.com/spring-projects/spring-framework   官方文档 https://docs.spring.io/spring/docs/5.1.8.RELEASE/sprin">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://liu-rui.github.io/2019/07/01/spring源码分析/AnnotationConfigApplicationContext.png">
-<meta property="og:updated_time" content="2019-07-01T02:53:09.242Z">
+<meta property="og:updated_time" content="2019-07-10T12:31:36.791Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="spring源码分析">
 <meta name="twitter:description" content="简介本课程基于spring,开发工具idea 2019.1    spring源码版本 5.1.x    gradle 5.4.1   IDEA 2019.1   源码地址 https://github.com/spring-projects/spring-framework   官方文档 https://docs.spring.io/spring/docs/5.1.8.RELEASE/sprin">
-<meta name="twitter:image" content="https://liu-rui.github.io/2019/07/01/spring源码分析/AnnotationConfigApplicationContext.png">
   
     <link rel="alternate" href="/atom.xml" title="liu-rui的blog" type="application/atom+xml">
   
@@ -89,7 +87,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>本课程基于spring,开发工具idea 2019.1</p>
+        <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>本课程基于spring,开发工具idea 2019.1</p>
 <table>
 <thead>
 <tr>
@@ -118,11 +116,11 @@
 <td></td>
 </tr>
 </tbody></table>
-<h4 id="1-安装gradle"><a href="#1-安装gradle" class="headerlink" title="1. 安装gradle"></a>1. 安装gradle</h4><h6 id="1-下载gradle，下载地址为-https-gradle-org-releases-，对应的版本为5-4-1"><a href="#1-下载gradle，下载地址为-https-gradle-org-releases-，对应的版本为5-4-1" class="headerlink" title="1. 下载gradle，下载地址为 https://gradle.org/releases/   ，对应的版本为5.4.1"></a>1. 下载gradle，下载地址为 <a href="https://gradle.org/releases/" target="_blank" rel="noopener">https://gradle.org/releases/</a>   ，对应的版本为5.4.1</h6><h5 id="2-解压"><a href="#2-解压" class="headerlink" title="2. 解压"></a>2. 解压</h5><h5 id="3-配置环境变量"><a href="#3-配置环境变量" class="headerlink" title="3. 配置环境变量"></a>3. 配置环境变量</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">GRADLE_HOME</span><br><span class="line">PATH</span><br></pre></td></tr></table></figure>
+<h1 id="1-本地编译源码"><a href="#1-本地编译源码" class="headerlink" title="1. 本地编译源码"></a>1. 本地编译源码</h1><h2 id="1-安装gradle"><a href="#1-安装gradle" class="headerlink" title="1. 安装gradle"></a>1. 安装gradle</h2><h6 id="1-下载gradle，下载地址为-https-gradle-org-releases-，对应的版本为5-4-1"><a href="#1-下载gradle，下载地址为-https-gradle-org-releases-，对应的版本为5-4-1" class="headerlink" title="1. 下载gradle，下载地址为 https://gradle.org/releases/   ，对应的版本为5.4.1"></a>1. 下载gradle，下载地址为 <a href="https://gradle.org/releases/" target="_blank" rel="noopener">https://gradle.org/releases/</a>   ，对应的版本为5.4.1</h6><h5 id="2-解压"><a href="#2-解压" class="headerlink" title="2. 解压"></a>2. 解压</h5><h5 id="3-配置环境变量"><a href="#3-配置环境变量" class="headerlink" title="3. 配置环境变量"></a>3. 配置环境变量</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">GRADLE_HOME</span><br><span class="line">PATH</span><br></pre></td></tr></table></figure>
 
 <h5 id="4-测试下gradle是否安装成功"><a href="#4-测试下gradle是否安装成功" class="headerlink" title="4. 测试下gradle是否安装成功"></a>4. 测试下gradle是否安装成功</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gradle -v</span><br></pre></td></tr></table></figure>
 
-<h4 id="1-本地编译spring源码"><a href="#1-本地编译spring源码" class="headerlink" title="1. 本地编译spring源码"></a>1. 本地编译spring源码</h4><h5 id="1-fork一份spring源码到自己的仓库"><a href="#1-fork一份spring源码到自己的仓库" class="headerlink" title="1. fork一份spring源码到自己的仓库"></a>1. fork一份spring源码到自己的仓库</h5><h5 id="2-git-clone-到本地"><a href="#2-git-clone-到本地" class="headerlink" title="2. git clone 到本地"></a>2. git clone 到本地</h5><h5 id="3-修改spring源码，解决编译过程中报错的问题"><a href="#3-修改spring源码，解决编译过程中报错的问题" class="headerlink" title="3. 修改spring源码，解决编译过程中报错的问题"></a>3. 修改spring源码，解决编译过程中报错的问题</h5><h6 id="1-修改gradle-docs-gradle文件schemaZip方法"><a href="#1-修改gradle-docs-gradle文件schemaZip方法" class="headerlink" title="1. 修改gradle\docs.gradle文件schemaZip方法"></a>1. 修改gradle\docs.gradle文件schemaZip方法</h6><ul>
+<h2 id="2-本地编译spring源码"><a href="#2-本地编译spring源码" class="headerlink" title="2. 本地编译spring源码"></a>2. 本地编译spring源码</h2><h5 id="1-fork一份spring源码到自己的仓库"><a href="#1-fork一份spring源码到自己的仓库" class="headerlink" title="1. fork一份spring源码到自己的仓库"></a>1. fork一份spring源码到自己的仓库</h5><h5 id="2-git-clone-到本地"><a href="#2-git-clone-到本地" class="headerlink" title="2. git clone 到本地"></a>2. git clone 到本地</h5><h5 id="3-修改spring源码，解决编译过程中报错的问题"><a href="#3-修改spring源码，解决编译过程中报错的问题" class="headerlink" title="3. 修改spring源码，解决编译过程中报错的问题"></a>3. 修改spring源码，解决编译过程中报错的问题</h5><h6 id="1-修改gradle-docs-gradle文件schemaZip方法"><a href="#1-修改gradle-docs-gradle文件schemaZip方法" class="headerlink" title="1. 修改gradle\docs.gradle文件schemaZip方法"></a>1. 修改gradle\docs.gradle文件schemaZip方法</h6><ul>
 <li>line 151，META-INF/spring.schemas改为META-INF\spring.schemas</li>
 <li>line 158, schemas.get(key)后面增加以下方法，.replaceAll(‘\/‘,’\\‘)<h5 id="3-编译代码"><a href="#3-编译代码" class="headerlink" title="3. 编译代码"></a>3. 编译代码</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gradle build</span><br></pre></td></tr></table></figure>
 
@@ -136,11 +134,179 @@
 
 <h6 id="4-添加App-Java文件，代码如下"><a href="#4-添加App-Java文件，代码如下" class="headerlink" title="4.  添加App.Java文件，代码如下"></a>4.  添加App.Java文件，代码如下</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@ComponentScan</span>(<span class="string">"a"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">App</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		AnnotationConfigApplicationContext applicationContext = <span class="keyword">new</span> AnnotationConfigApplicationContext(App.class);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span> (String beanDefinitionName : applicationContext.getBeanDefinitionNames()) &#123;</span><br><span class="line">			System.out.println(beanDefinitionName);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h6 id="5-添加service-CustomerService-java文件-代码如下"><a href="#5-添加service-CustomerService-java文件-代码如下" class="headerlink" title="5. 添加service/CustomerService.java文件,代码如下"></a>5. 添加service/CustomerService.java文件,代码如下</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CustomerService</span> </span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h6 id="5-添加service-CustomerService-java文件-代码如下"><a href="#5-添加service-CustomerService-java文件-代码如下" class="headerlink" title="5. 添加service/CustomerService.java文件,代码如下:"></a>5. 添加service/CustomerService.java文件,代码如下:</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CustomerService</span> </span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h6 id="6-运行main函数-输出结果如下"><a href="#6-运行main函数-输出结果如下" class="headerlink" title="6.  运行main函数,输出结果如下"></a>6.  运行main函数,输出结果如下</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">org.springframework.context.annotation.internalConfigurationAnnotationProcessor</span><br><span class="line">org.springframework.context.annotation.internalAutowiredAnnotationProcessor</span><br><span class="line">org.springframework.context.annotation.internalCommonAnnotationProcessor</span><br><span class="line">org.springframework.context.event.internalEventListenerProcessor</span><br><span class="line">org.springframework.context.event.internalEventListenerFactory</span><br><span class="line">app</span><br><span class="line">customerService</span><br></pre></td></tr></table></figure>
 
-<img src="/2019/07/01/spring源码分析/AnnotationConfigApplicationContext.png" title="This is an example image"> 
+<h1 id="2-AnnotationConfigApplicationContext执行流程"><a href="#2-AnnotationConfigApplicationContext执行流程" class="headerlink" title="2.  AnnotationConfigApplicationContext执行流程"></a>2.  AnnotationConfigApplicationContext执行流程</h1><p>使用spring initialzr创建项目,入口类代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example.demo58;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.AnnotationConfigApplicationContext;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.ComponentScan;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Configuration;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@ComponentScan</span>(<span class="string">"com.example"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo58Application</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        AnnotationConfigApplicationContext   applicationContext = <span class="keyword">new</span> AnnotationConfigApplicationContext(Demo58Application.class);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (String beanDefinitionName : applicationContext.getBeanDefinitionNames()) &#123;</span><br><span class="line">            System.out.println(beanDefinitionName);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>通过调试我们看下代码整个执行过程：</p>
+<p>总体只执行了三个方法：</p>
+<ol>
+<li><p>this()，调用了无参数构造函数</p>
+</li>
+<li><p>register(annotatedClasses);调用注册方法</p>
+</li>
+<li><p>refresh()；调用了刷新方法，注意此方法来源于【AbstractApplicationContext】</p>
+</li>
+</ol>
+<p>接下来我们对这三个方法进行分析</p>
+<h2 id="1-this-无参数构造函数"><a href="#1-this-无参数构造函数" class="headerlink" title="1. this();无参数构造函数"></a>1. this();无参数构造函数</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.classLoader = ClassUtils.getDefaultClassLoader();</span><br><span class="line"><span class="keyword">this</span>.resourcePatternResolver = getResourcePatternResolver();</span><br><span class="line"><span class="keyword">this</span>.beanFactory = <span class="keyword">new</span> DefaultListableBeanFactory(); </span><br><span class="line"><span class="keyword">this</span>.reader = <span class="keyword">new</span> AnnotatedBeanDefinitionReader(<span class="keyword">this</span>);</span><br><span class="line"><span class="keyword">this</span>.scanner = <span class="keyword">new</span> ClassPathBeanDefinitionScanner(<span class="keyword">this</span>);</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><p>初始化classLoader，链式赋值</p>
+<ol>
+<li>使用当前线程的上下文类加载器【Thread.currentThread().getContextClassLoader()】;</li>
+<li>使用ClassUtils类的类加载器【ClassUtils.class.getClassLoader()】</li>
+<li>使用系统类加载器【ClassLoader.getSystemClassLoader()】</li>
+</ol>
+</li>
+<li><p>初始化resourcePatternResolver,此赋值来源于<strong>AbstractApplicationContext</strong></p>
+<p>使用了PathMatchingResourcePatternResolver,即Ant-style路径模式</p>
+</li>
+<li><p>初始化beanFactory，此赋值来源于<strong>GenericApplicationContext</strong></p>
+</li>
+<li><p>初始化reader,使用注解方式的bean定义读取器</p>
+</li>
+<li><p>初始化scanner,使用类路径方式的bean定义扫描器</p>
+</li>
+</ol>
+<h2 id="2-register-annotatedClasses-调用注册方法"><a href="#2-register-annotatedClasses-调用注册方法" class="headerlink" title="2. register(annotatedClasses);调用注册方法"></a>2. register(annotatedClasses);调用注册方法</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">register</span><span class="params">(Class&lt;?&gt;... annotatedClasses)</span> </span>&#123;</span><br><span class="line">		Assert.notEmpty(annotatedClasses, <span class="string">"At least one annotated class must be specified"</span>);</span><br><span class="line">		<span class="keyword">this</span>.reader.register(annotatedClasses);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>调用了reader属性的register方法,代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">register</span><span class="params">(Class&lt;?&gt;... annotatedClasses)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">for</span> (Class&lt;?&gt; annotatedClass : annotatedClasses) &#123;</span><br><span class="line">			registerBean(annotatedClass);</span><br><span class="line">		&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>registerBean(annotatedClass); 待分析…..</p>
+<h2 id="3-refresh-；刷新方法"><a href="#3-refresh-；刷新方法" class="headerlink" title="3. refresh()；刷新方法"></a>3. refresh()；刷新方法</h2><p>代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">synchronized</span> (<span class="keyword">this</span>.startupShutdownMonitor) &#123;</span><br><span class="line">			prepareRefresh();</span><br><span class="line">			ConfigurableListableBeanFactory beanFactory = obtainFreshBeanFactory();</span><br><span class="line">			prepareBeanFactory(beanFactory);</span><br><span class="line">			<span class="keyword">try</span> &#123;</span><br><span class="line">				postProcessBeanFactory(beanFactory);</span><br><span class="line">				invokeBeanFactoryPostProcessors(beanFactory);</span><br><span class="line">				registerBeanPostProcessors(beanFactory);</span><br><span class="line">				initMessageSource();</span><br><span class="line">				initApplicationEventMulticaster();</span><br><span class="line">				onRefresh();</span><br><span class="line">				registerListeners();</span><br><span class="line">				finishBeanFactoryInitialization(beanFactory);</span><br><span class="line">				finishRefresh();</span><br><span class="line">			&#125;<span class="keyword">catch</span> (BeansException ex) &#123;</span><br><span class="line">				destroyBeans();</span><br><span class="line">				cancelRefresh(ex);</span><br><span class="line">				<span class="keyword">throw</span> ex;</span><br><span class="line">			&#125;<span class="keyword">finally</span> &#123;</span><br><span class="line">				resetCommonCaches();</span><br><span class="line">			&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-synchronized-this-startupShutdownMonitor-线程同步"><a href="#1-synchronized-this-startupShutdownMonitor-线程同步" class="headerlink" title="1.  synchronized (this.startupShutdownMonitor); 线程同步"></a>1.  synchronized (this.startupShutdownMonitor); 线程同步</h3><h3 id="2-prepareRefresh"><a href="#2-prepareRefresh" class="headerlink" title="2.  prepareRefresh()"></a>2.  prepareRefresh()</h3><blockquote>
+<p>刷新前准备</p>
+</blockquote>
+<p>执行过程如下：</p>
+<ol>
+<li><p>startupDate设置为当前时间</p>
+</li>
+<li><p>closed为false</p>
+</li>
+<li><p>active为true</p>
+</li>
+<li><p>initPropertySources()，初始化属性来源</p>
+</li>
+<li><p>getEnvironment().validateRequiredProperties()，验证必要的属性</p>
+</li>
+<li><p>判断earlyApplicationListeners是否为null，</p>
+</li>
+</ol>
+<p>​       如果为null,说明是容器是首次运行，earlyApplicationListeners值来源于applicationListeners，而此时的applicationListeners数据是通过调用了容器的addApplicationListener()方法添加的。</p>
+<pre><code>不为null,重置下applicationListeners：清空，将earlyApplicationListeners全部加进来。</code></pre><ol start="7">
+<li>初始化earlyApplicationEvents为LinkedHashSet    </li>
+</ol>
+<h3 id="3-ConfigurableListableBeanFactory-beanFactory-obtainFreshBeanFactory"><a href="#3-ConfigurableListableBeanFactory-beanFactory-obtainFreshBeanFactory" class="headerlink" title="3. ConfigurableListableBeanFactory beanFactory = obtainFreshBeanFactory();"></a>3. ConfigurableListableBeanFactory beanFactory = obtainFreshBeanFactory();</h3><blockquote>
+<p>刷新下BeanFactory,并且返回</p>
+</blockquote>
+<p>  this.beanFactory.setSerializationId(getId());</p>
+<p>将beanFactory的SerializationId设置为容器的id</p>
+<h3 id="4-prepareBeanFactory-beanFactory"><a href="#4-prepareBeanFactory-beanFactory" class="headerlink" title="4.  prepareBeanFactory(beanFactory);"></a>4.  prepareBeanFactory(beanFactory);</h3><blockquote>
+<p>准备beanFactory</p>
+</blockquote>
+<ol>
+<li>设置beanClassLoader</li>
+<li>设置beanExpressionResolver为StandardBeanExpressionResolver</li>
+<li>调用addBeanPostProcessor(),添加bean后置处理器<strong>ApplicationContextAwareProcessor</strong></li>
+<li>调用ignoreDependencyInterface(),添加忽略接口,忽略的接口类型有：<ol>
+<li>EnvironmentAware</li>
+<li>EmbeddedValueResolverAware</li>
+<li>ResourceLoaderAware</li>
+<li>ApplicationEventPublisherAware</li>
+<li>MessageSourceAware</li>
+<li>MessageSourceAware</li>
+</ol>
+</li>
+<li>调用registerResolvableDependency(), 添加可解析的依赖<ol>
+<li>BeanFactory</li>
+<li>ResourceLoader</li>
+<li>ApplicationEventPublisher</li>
+<li>ApplicationContext</li>
+</ol>
+</li>
+<li>调用addBeanPostProcessor(),添加bean后置处理器<strong>ApplicationListenerDetector</strong></li>
+<li>设置类加载期织入LTW（Load Time Weaving）</li>
+<li>调用registerSingleton(),注册单例，key和value对应关系如下：<ol>
+<li>environment    &gt;&gt;    ConfigurableEnvironment</li>
+<li>systemProperties    &gt;&gt;    getEnvironment().getSystemProperties()</li>
+<li>systemEnvironment    &gt;&gt;    getEnvironment().getSystemEnvironment()</li>
+</ol>
+</li>
+</ol>
+<h3 id="5-postProcessBeanFactory-beanFactory"><a href="#5-postProcessBeanFactory-beanFactory" class="headerlink" title="5. postProcessBeanFactory(beanFactory);"></a>5. postProcessBeanFactory(beanFactory);</h3><blockquote>
+<p>预处理BeanFactory，留给子类来实现</p>
+</blockquote>
+<h3 id="6-invokeBeanFactoryPostProcessors-beanFactory"><a href="#6-invokeBeanFactoryPostProcessors-beanFactory" class="headerlink" title="6. invokeBeanFactoryPostProcessors(beanFactory);"></a>6. invokeBeanFactoryPostProcessors(beanFactory);</h3><blockquote>
+<p>触发BeanFactroy后置处理器</p>
+</blockquote>
+<p>流程如下：</p>
+<h4 id="1-getBeanFactoryPostProcessors-，得到手动添加的BeanFactroy后置处理器"><a href="#1-getBeanFactoryPostProcessors-，得到手动添加的BeanFactroy后置处理器" class="headerlink" title="1.  getBeanFactoryPostProcessors()，得到手动添加的BeanFactroy后置处理器"></a>1.  getBeanFactoryPostProcessors()，得到手动添加的BeanFactroy后置处理器</h4><p>   此时的来源主要是手动的，是通过调用addBeanFactoryPostProcessor()添加的</p>
+<h4 id="2-PostProcessorRegistrationDelegate-invokeBeanFactoryPostProcessors-）"><a href="#2-PostProcessorRegistrationDelegate-invokeBeanFactoryPostProcessors-）" class="headerlink" title="2.  PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(）"></a>2.  PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(）</h4><blockquote>
+<p>触发BeanFactroy后置处理器</p>
+</blockquote>
+<h5 id="1-判断beanFacotry是否是BeanDefinitionRegistry的实例，满足条件的话-执行下面的逻辑："><a href="#1-判断beanFacotry是否是BeanDefinitionRegistry的实例，满足条件的话-执行下面的逻辑：" class="headerlink" title="1.判断beanFacotry是否是BeanDefinitionRegistry的实例，满足条件的话,执行下面的逻辑："></a>1.判断beanFacotry是否是BeanDefinitionRegistry的实例，满足条件的话,执行下面的逻辑：</h5><ol>
+<li><p>遍历beanFactoryPostProcessors,</p>
+<pre><code>1.  如果当前的后置处理器是BeanDefinitionRegistryPostProcessor的实例
+        1.  触发postProcessBeanDefinitionRegistry方法
+        2.  添加到registryProcessors列表中
+2.  否则的话，添加到regularPostProcessors列表中</code></pre></li>
+<li><p>执行beanFatory中实现了BeanDefinitionRegistryPostProcessor类型</p>
+<pre><code>  1.  执行实现了PriorityOrdered接口的BeanFactory后置处理器
+          1.  排序
+          2.  触发BeanDefinitionRegistryPostProcessor.postProcessBeanDefinitionRegistry方法
+  2.  执行实现了Ordered接口的BeanFactory后置处理器
+1. 排序
+2. 触发BeanDefinitionRegistryPostProcessor.postProcessBeanDefinitionRegistry方法</code></pre><ol start="3">
+<li><p>执行剩下的后置处理器</p>
+<ol>
+<li><p>排序</p>
+</li>
+<li><p>触发BeanDefinitionRegistryPostProcessor.postProcessBeanDefinitionRegistry方法</p>
+</li>
+<li><p>执行在容器中注册的beanFactoryPostProcessor的postProcessBeanFactory方法</p>
+</li>
+<li><p>执行手动注册的beanFactoryPostProcessor的postProcessBeanFactory方法</p>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<ol start="2">
+<li><h5 id="如果beanFactory不是BeanDefinitionRegistry的实例，调用手动注册的beanFactoryPostProcessor的postProcessBeanFactory方法"><a href="#如果beanFactory不是BeanDefinitionRegistry的实例，调用手动注册的beanFactoryPostProcessor的postProcessBeanFactory方法" class="headerlink" title="如果beanFactory不是BeanDefinitionRegistry的实例，调用手动注册的beanFactoryPostProcessor的postProcessBeanFactory方法"></a>如果beanFactory不是BeanDefinitionRegistry的实例，调用手动注册的beanFactoryPostProcessor的postProcessBeanFactory方法</h5></li>
+<li><h5 id="处理beanFactory中类型是BeanFactoryPostProcessor的-已经处理的跳过"><a href="#处理beanFactory中类型是BeanFactoryPostProcessor的-已经处理的跳过" class="headerlink" title="处理beanFactory中类型是BeanFactoryPostProcessor的,已经处理的跳过"></a>处理beanFactory中类型是BeanFactoryPostProcessor的,已经处理的跳过</h5><ol>
+<li>处理实现了接口PriorityOrdered的<ol>
+<li>排序</li>
+<li>调用BeanFactoryPostProcessor.postProcessBeanFactory方法</li>
+</ol>
+</li>
+<li>处理实现了接口Ordered的<ol>
+<li>排序</li>
+<li>调用BeanFactoryPostProcessor.postProcessBeanFactory方法</li>
+</ol>
+</li>
+<li>处理剩下的,调用BeanFactoryPostProcessor.postProcessBeanFactory方法</li>
+</ol>
+</li>
+<li><h5 id="beanFactory-clearMetadataCache"><a href="#beanFactory-clearMetadataCache" class="headerlink" title="beanFactory.clearMetadataCache()"></a>beanFactory.clearMetadataCache()</h5></li>
+</ol>
+<h4 id="3-处理loadTimeWeaver"><a href="#3-处理loadTimeWeaver" class="headerlink" title="3.  处理loadTimeWeaver"></a>3.  处理loadTimeWeaver</h4><h3 id="7-registerBeanPostProcessors-beanFactory"><a href="#7-registerBeanPostProcessors-beanFactory" class="headerlink" title="7. registerBeanPostProcessors(beanFactory)"></a>7. registerBeanPostProcessors(beanFactory)</h3><blockquote>
+<p>注册Bean后置处理器</p>
+</blockquote>
+<p>调用了 PostProcessorRegistrationDelegate.registerBeanPostProcessors(beanFactory, this)，执行流程如下：</p>
+<h4 id="1-从容器中获取类型为BeanPostProcessor的bean名称"><a href="#1-从容器中获取类型为BeanPostProcessor的bean名称" class="headerlink" title="1. 从容器中获取类型为BeanPostProcessor的bean名称"></a>1. 从容器中获取类型为BeanPostProcessor的bean名称</h4><h4 id="2-向容器中添加一个BeanPostProcessorChecker类型的bean后置处理器"><a href="#2-向容器中添加一个BeanPostProcessorChecker类型的bean后置处理器" class="headerlink" title="2.  向容器中添加一个BeanPostProcessorChecker类型的bean后置处理器"></a>2.  向容器中添加一个BeanPostProcessorChecker类型的bean后置处理器</h4><ol start="3">
+<li>触发</li>
+</ol>
+<h3 id="8-initMessageSource"><a href="#8-initMessageSource" class="headerlink" title="8. initMessageSource();"></a>8. initMessageSource();</h3><h3 id="9-initApplicationEventMulticaster"><a href="#9-initApplicationEventMulticaster" class="headerlink" title="9.  initApplicationEventMulticaster();"></a>9.  initApplicationEventMulticaster();</h3><h3 id="10-onRefresh"><a href="#10-onRefresh" class="headerlink" title="10. onRefresh()"></a>10. onRefresh()</h3><h3 id="11-registerListeners"><a href="#11-registerListeners" class="headerlink" title="11. registerListeners();"></a>11. registerListeners();</h3><h3 id="12-finishBeanFactoryInitialization-beanFactory"><a href="#12-finishBeanFactoryInitialization-beanFactory" class="headerlink" title="12. finishBeanFactoryInitialization(beanFactory);"></a>12. finishBeanFactoryInitialization(beanFactory);</h3><h3 id="13-finishRefresh"><a href="#13-finishRefresh" class="headerlink" title="13. finishRefresh();"></a>13. finishRefresh();</h3><h3 id="14-destroyBeans"><a href="#14-destroyBeans" class="headerlink" title="14. destroyBeans();"></a>14. destroyBeans();</h3><h3 id="15-cancelRefresh-ex"><a href="#15-cancelRefresh-ex" class="headerlink" title="15. cancelRefresh(ex);"></a>15. cancelRefresh(ex);</h3><h3 id="16-resetCommonCaches"><a href="#16-resetCommonCaches" class="headerlink" title="16. resetCommonCaches();"></a>16. resetCommonCaches();</h3><p>未解之谜：</p>
+<p>ConfigurableEnvironment, getSystemProperties,getSystemEnvironment</p>
+
       
     </div>
     <footer class="article-footer">
