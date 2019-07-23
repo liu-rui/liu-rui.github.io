@@ -62,6 +62,71 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-flutter环境搭建" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/07/17/flutter环境搭建/" class="article-date">
+  <time datetime="2019-07-17T01:38:44.000Z" itemprop="datePublished">2019-07-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/17/flutter环境搭建/">flutter环境搭建</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>dart sdk下载</p>
+<p>源码地址：<a href="https://github.com/dart-lang/sdk" target="_blank" rel="noopener">https://github.com/dart-lang/sdk</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git@github.com:dart-lang/sdk.git</span><br></pre></td></tr></table></figure>
+
+<p>配置环境变量</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">DART_HOME</span><br><span class="line">PATH</span><br></pre></td></tr></table></figure>
+
+<p>flutter sdk 下载</p>
+<p>参考官方文档 <a href="https://flutter.dev/community/china" target="_blank" rel="noopener">https://flutter.dev/community/china</a></p>
+<p>下载压缩包</p>
+<p>配置环境变量</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export PUB_HOSTED_URL=https://pub.flutter-io.cn</span><br><span class="line">export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn</span><br><span class="line">Path //将flutter/bin添加到Path中</span><br></pre></td></tr></table></figure>
+
+<p>android studio 下载</p>
+<p>下载地址：<a href="https://developer.android.google.cn/studio/" target="_blank" rel="noopener">https://developer.android.google.cn/studio/</a></p>
+<p>按照插件：dart,flutter</p>
+<p>测试下环境</p>
+<p>flutter doctor</p>
+<p>第一个程序</p>
+<p>打开android studio</p>
+<p>新建new project -&gt; flutter</p>
+<p>手机接入，开启usb调试模式</p>
+<p>点击运行</p>
+<p>可能会卡在init gradle阶段</p>
+<p>打开android-&gt;gradle.bat文件,修改为以下内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">set CLASSPATH=D:\software\gradle-5.4.1\lib\gradle-launcher-5.4.1.jar</span><br><span class="line"></span><br><span class="line">&quot;%JAVA_EXE%&quot; %DEFAULT_JVM_OPTS% %JAVA_OPTS% %GRADLE_OPTS% &quot;-Dorg.gradle.appname=%APP_BASE_NAME%&quot; -classpath &quot;%CLASSPATH%&quot; org.gradle.launcher.GradleMain %CMD_LINE_ARGS%</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://liu-rui.github.io/2019/07/17/flutter环境搭建/" data-id="cjyfxwsda0000r0nnf9t4yusg" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/flutter/">flutter</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-spring源码分析" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/07/01/spring源码分析/" class="article-date">
@@ -1116,7 +1181,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/skywalking/">skywalking</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring-boot/">spring boot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring-boot-admin/">spring boot admin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring-源码-分析/">spring 源码 分析</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/源码-经验/">源码 经验</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/flutter/">flutter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/skywalking/">skywalking</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring-boot/">spring boot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring-boot-admin/">spring boot admin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring-源码-分析/">spring 源码 分析</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/源码-经验/">源码 经验</a></li></ul>
     </div>
   </div>
 
@@ -1126,7 +1191,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/skywalking/" style="font-size: 10px;">skywalking</a> <a href="/tags/spring-boot/" style="font-size: 10px;">spring boot</a> <a href="/tags/spring-boot-admin/" style="font-size: 10px;">spring boot admin</a> <a href="/tags/spring-源码-分析/" style="font-size: 10px;">spring 源码 分析</a> <a href="/tags/源码-经验/" style="font-size: 10px;">源码 经验</a>
+      <a href="/tags/flutter/" style="font-size: 10px;">flutter</a> <a href="/tags/skywalking/" style="font-size: 10px;">skywalking</a> <a href="/tags/spring-boot/" style="font-size: 10px;">spring boot</a> <a href="/tags/spring-boot-admin/" style="font-size: 10px;">spring boot admin</a> <a href="/tags/spring-源码-分析/" style="font-size: 10px;">spring 源码 分析</a> <a href="/tags/源码-经验/" style="font-size: 10px;">源码 经验</a>
     </div>
   </div>
 
@@ -1148,6 +1213,10 @@
       <ul>
         
           <li>
+            <a href="/2019/07/17/flutter环境搭建/">flutter环境搭建</a>
+          </li>
+        
+          <li>
             <a href="/2019/07/01/spring源码分析/">spring源码分析</a>
           </li>
         
@@ -1161,10 +1230,6 @@
         
           <li>
             <a href="/2019/06/27/mybatis-plus源码分析/">mybatis-plus源码分析</a>
-          </li>
-        
-          <li>
-            <a href="/2019/06/27/spring-boot-admin的使用/">spring-boot-admin的使用</a>
           </li>
         
       </ul>

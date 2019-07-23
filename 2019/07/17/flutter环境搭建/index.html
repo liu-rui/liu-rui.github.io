@@ -5,20 +5,20 @@
   
 
   
-  <title>源码研究经验 | liu-rui的blog</title>
+  <title>flutter环境搭建 | liu-rui的blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="对源码的研究无论对平时业务的开发还是个人技术水平的成长都会有很大的帮助，技术人员不能光停留在使用的层次，还要懂得背后的原理。 源码的研究需要有耐心，当然也有些方法。本文总结了源码研究的一些方法；  第一步，源码fork到自己的仓库中 fork到自己仓库有几个好处：   可以随时修改代码，添加注释 当官方发生变化的时候，可以与自己仓库对比，发现版本的变化   源码下载到本地，必须编译通过     在">
-<meta name="keywords" content="源码 经验">
+  <meta name="description" content="dart sdk下载 源码地址：https://github.com/dart-lang/sdk 1git clone git@github.com:dart-lang/sdk.git  配置环境变量 12DART_HOMEPATH  flutter sdk 下载 参考官方文档 https://flutter.dev/community/china 下载压缩包 配置环境变量 123export P">
+<meta name="keywords" content="flutter">
 <meta property="og:type" content="article">
-<meta property="og:title" content="源码研究经验">
-<meta property="og:url" content="https://liu-rui.github.io/2019/06/30/源码研究经验/index.html">
+<meta property="og:title" content="flutter环境搭建">
+<meta property="og:url" content="https://liu-rui.github.io/2019/07/17/flutter环境搭建/index.html">
 <meta property="og:site_name" content="liu-rui的blog">
-<meta property="og:description" content="对源码的研究无论对平时业务的开发还是个人技术水平的成长都会有很大的帮助，技术人员不能光停留在使用的层次，还要懂得背后的原理。 源码的研究需要有耐心，当然也有些方法。本文总结了源码研究的一些方法；  第一步，源码fork到自己的仓库中 fork到自己仓库有几个好处：   可以随时修改代码，添加注释 当官方发生变化的时候，可以与自己仓库对比，发现版本的变化   源码下载到本地，必须编译通过     在">
+<meta property="og:description" content="dart sdk下载 源码地址：https://github.com/dart-lang/sdk 1git clone git@github.com:dart-lang/sdk.git  配置环境变量 12DART_HOMEPATH  flutter sdk 下载 参考官方文档 https://flutter.dev/community/china 下载压缩包 配置环境变量 123export P">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-22T01:32:19.552Z">
+<meta property="og:updated_time" content="2019-07-23T14:54:23.541Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="源码研究经验">
-<meta name="twitter:description" content="对源码的研究无论对平时业务的开发还是个人技术水平的成长都会有很大的帮助，技术人员不能光停留在使用的层次，还要懂得背后的原理。 源码的研究需要有耐心，当然也有些方法。本文总结了源码研究的一些方法；  第一步，源码fork到自己的仓库中 fork到自己仓库有几个好处：   可以随时修改代码，添加注释 当官方发生变化的时候，可以与自己仓库对比，发现版本的变化   源码下载到本地，必须编译通过     在">
+<meta name="twitter:title" content="flutter环境搭建">
+<meta name="twitter:description" content="dart sdk下载 源码地址：https://github.com/dart-lang/sdk 1git clone git@github.com:dart-lang/sdk.git  配置环境变量 12DART_HOMEPATH  flutter sdk 下载 参考官方文档 https://flutter.dev/community/china 下载压缩包 配置环境变量 123export P">
   
     <link rel="alternate" href="/atom.xml" title="liu-rui的blog" type="application/atom+xml">
   
@@ -65,10 +65,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-源码研究经验" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-flutter环境搭建" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/06/30/源码研究经验/" class="article-date">
-  <time datetime="2019-06-30T03:27:04.000Z" itemprop="datePublished">2019-06-30</time>
+    <a href="/2019/07/17/flutter环境搭建/" class="article-date">
+  <time datetime="2019-07-17T01:38:44.000Z" itemprop="datePublished">2019-07-17</time>
 </a>
     
   </div>
@@ -79,7 +79,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      源码研究经验
+      flutter环境搭建
     </h1>
   
 
@@ -87,35 +87,41 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>对源码的研究无论对平时业务的开发还是个人技术水平的成长都会有很大的帮助，技术人员不能光停留在使用的层次，还要懂得背后的原理。</p>
-<p>源码的研究需要有耐心，当然也有些方法。本文总结了源码研究的一些方法；</p>
-<ol>
-<li>第一步，源码fork到自己的仓库中 fork到自己仓库有几个好处：</li>
-</ol>
-<ul>
-<li>可以随时修改代码，添加注释</li>
-<li>当官方发生变化的时候，可以与自己仓库对比，发现版本的变化</li>
-</ul>
-<ol start="2">
-<li><p>源码下载到本地，必须编译通过   </p>
-</li>
-<li><p>在源码中创建业务代码或功能代码，这样可以使用当前的源码调试</p>
-</li>
-<li><p>研究源码最好的方式就是一步一步的调试</p>
-</li>
-<li><p>源码会有多个版本，只研究当前正在使用的版本；</p>
-</li>
-<li><p>研究源码要有目的性</p>
-</li>
-</ol>
+        <p>dart sdk下载</p>
+<p>源码地址：<a href="https://github.com/dart-lang/sdk" target="_blank" rel="noopener">https://github.com/dart-lang/sdk</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git@github.com:dart-lang/sdk.git</span><br></pre></td></tr></table></figure>
+
+<p>配置环境变量</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">DART_HOME</span><br><span class="line">PATH</span><br></pre></td></tr></table></figure>
+
+<p>flutter sdk 下载</p>
+<p>参考官方文档 <a href="https://flutter.dev/community/china" target="_blank" rel="noopener">https://flutter.dev/community/china</a></p>
+<p>下载压缩包</p>
+<p>配置环境变量</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export PUB_HOSTED_URL=https://pub.flutter-io.cn</span><br><span class="line">export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn</span><br><span class="line">Path //将flutter/bin添加到Path中</span><br></pre></td></tr></table></figure>
+
+<p>android studio 下载</p>
+<p>下载地址：<a href="https://developer.android.google.cn/studio/" target="_blank" rel="noopener">https://developer.android.google.cn/studio/</a></p>
+<p>按照插件：dart,flutter</p>
+<p>测试下环境</p>
+<p>flutter doctor</p>
+<p>第一个程序</p>
+<p>打开android studio</p>
+<p>新建new project -&gt; flutter</p>
+<p>手机接入，开启usb调试模式</p>
+<p>点击运行</p>
+<p>可能会卡在init gradle阶段</p>
+<p>打开android-&gt;gradle.bat文件,修改为以下内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">set CLASSPATH=D:\software\gradle-5.4.1\lib\gradle-launcher-5.4.1.jar</span><br><span class="line"></span><br><span class="line">&quot;%JAVA_EXE%&quot; %DEFAULT_JVM_OPTS% %JAVA_OPTS% %GRADLE_OPTS% &quot;-Dorg.gradle.appname=%APP_BASE_NAME%&quot; -classpath &quot;%CLASSPATH%&quot; org.gradle.launcher.GradleMain %CMD_LINE_ARGS%</span><br></pre></td></tr></table></figure>
+
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liu-rui.github.io/2019/06/30/源码研究经验/" data-id="cjyfxw35l00057gnnedpxpgrr" class="article-share-link">Share</a>
+      <a data-url="https://liu-rui.github.io/2019/07/17/flutter环境搭建/" data-id="cjyfxwsda0000r0nnf9t4yusg" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/源码-经验/">源码 经验</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/flutter/">flutter</a></li></ul>
 
     </footer>
   </div>
@@ -123,19 +129,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2019/07/01/spring源码分析/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          spring源码分析
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/06/28/sharding-jdbc源码分析/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2019/07/01/spring源码分析/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">sharding-jdbc源码分析</div>
+      <div class="article-nav-title">spring源码分析</div>
     </a>
   
 </nav>
