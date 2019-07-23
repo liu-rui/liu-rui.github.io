@@ -113,27 +113,28 @@
 <td></td>
 </tr>
 </tbody></table>
-<h1 id="1-本地编译源码"><a href="#1-本地编译源码" class="headerlink" title="1. 本地编译源码"></a>1. 本地编译源码</h1><h2 id="1-安装gradle"><a href="#1-安装gradle" class="headerlink" title="1. 安装gradle"></a>1. 安装gradle</h2><h6 id="1-下载gradle，下载地址为-https-gradle-org-releases-，对应的版本为5-4-1"><a href="#1-下载gradle，下载地址为-https-gradle-org-releases-，对应的版本为5-4-1" class="headerlink" title="1. 下载gradle，下载地址为 https://gradle.org/releases/   ，对应的版本为5.4.1"></a>1. 下载gradle，下载地址为 <a href="https://gradle.org/releases/" target="_blank" rel="noopener">https://gradle.org/releases/</a>   ，对应的版本为5.4.1</h6><h5 id="2-解压"><a href="#2-解压" class="headerlink" title="2. 解压"></a>2. 解压</h5><h5 id="3-配置环境变量"><a href="#3-配置环境变量" class="headerlink" title="3. 配置环境变量"></a>3. 配置环境变量</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">GRADLE_HOME</span><br><span class="line">PATH</span><br></pre></td></tr></table></figure>
+<h1 id="1-本地编译源码"><a href="#1-本地编译源码" class="headerlink" title="1.  本地编译源码"></a>1.  本地编译源码</h1><h2 id="1-安装gradle"><a href="#1-安装gradle" class="headerlink" title="1. 安装gradle"></a>1. 安装gradle</h2><h3 id="1-下载gradle"><a href="#1-下载gradle" class="headerlink" title="1. 下载gradle"></a>1. 下载gradle</h3><p>下载地址为 <a href="https://gradle.org/releases/" target="_blank" rel="noopener">https://gradle.org/releases/</a>   ，对应的版本为5.4.1</p>
+<h3 id="2-解压"><a href="#2-解压" class="headerlink" title="2. 解压"></a>2. 解压</h3><h3 id="3-配置环境变量"><a href="#3-配置环境变量" class="headerlink" title="3. 配置环境变量"></a>3. 配置环境变量</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">GRADLE_HOME</span><br><span class="line">PATH</span><br></pre></td></tr></table></figure>
 
-<h5 id="4-测试下gradle是否安装成功"><a href="#4-测试下gradle是否安装成功" class="headerlink" title="4. 测试下gradle是否安装成功"></a>4. 测试下gradle是否安装成功</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gradle -v</span><br></pre></td></tr></table></figure>
+<h3 id="4-测试下gradle是否安装成功"><a href="#4-测试下gradle是否安装成功" class="headerlink" title="4. 测试下gradle是否安装成功"></a>4. 测试下gradle是否安装成功</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gradle -v</span><br></pre></td></tr></table></figure>
 
-<h2 id="2-本地编译spring源码"><a href="#2-本地编译spring源码" class="headerlink" title="2. 本地编译spring源码"></a>2. 本地编译spring源码</h2><h5 id="1-fork一份spring源码到自己的仓库"><a href="#1-fork一份spring源码到自己的仓库" class="headerlink" title="1. fork一份spring源码到自己的仓库"></a>1. fork一份spring源码到自己的仓库</h5><h5 id="2-git-clone-到本地"><a href="#2-git-clone-到本地" class="headerlink" title="2. git clone 到本地"></a>2. git clone 到本地</h5><h5 id="3-修改spring源码，解决编译过程中报错的问题"><a href="#3-修改spring源码，解决编译过程中报错的问题" class="headerlink" title="3. 修改spring源码，解决编译过程中报错的问题"></a>3. 修改spring源码，解决编译过程中报错的问题</h5><h6 id="1-修改gradle-docs-gradle文件schemaZip方法"><a href="#1-修改gradle-docs-gradle文件schemaZip方法" class="headerlink" title="1. 修改gradle\docs.gradle文件schemaZip方法"></a>1. 修改gradle\docs.gradle文件schemaZip方法</h6><ul>
+<h2 id="2-本地编译spring源码"><a href="#2-本地编译spring源码" class="headerlink" title="2. 本地编译spring源码"></a>2. 本地编译spring源码</h2><h3 id="1-fork一份spring源码到自己的仓库"><a href="#1-fork一份spring源码到自己的仓库" class="headerlink" title="1. fork一份spring源码到自己的仓库"></a>1. fork一份spring源码到自己的仓库</h3><h3 id="2-git-clone-到本地"><a href="#2-git-clone-到本地" class="headerlink" title="2. git clone 到本地"></a>2. git clone 到本地</h3><h3 id="3-修改spring源码，解决编译过程中报错的问题"><a href="#3-修改spring源码，解决编译过程中报错的问题" class="headerlink" title="3. 修改spring源码，解决编译过程中报错的问题"></a>3. 修改spring源码，解决编译过程中报错的问题</h3><h4 id="1-修改gradle-docs-gradle文件schemaZip方法"><a href="#1-修改gradle-docs-gradle文件schemaZip方法" class="headerlink" title="1. 修改gradle\docs.gradle文件schemaZip方法"></a>1. 修改gradle\docs.gradle文件schemaZip方法</h4><ul>
 <li>line 151，META-INF/spring.schemas改为META-INF\spring.schemas</li>
-<li>line 158, schemas.get(key)后面增加以下方法，.replaceAll(‘\/‘,’\\‘)<h5 id="3-编译代码"><a href="#3-编译代码" class="headerlink" title="3. 编译代码"></a>3. 编译代码</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gradle build</span><br></pre></td></tr></table></figure>
+<li>line 158, schemas.get(key)后面增加以下方法，.replaceAll(‘\/‘,’\\‘)<h3 id="4-编译代码"><a href="#4-编译代码" class="headerlink" title="4. 编译代码"></a>4. 编译代码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gradle build</span><br></pre></td></tr></table></figure>
 
 </li>
 </ul>
 <p>等待编译完成，需要很长的时间</p>
-<h5 id="4-测试下是否编译通过"><a href="#4-测试下是否编译通过" class="headerlink" title="4. 测试下是否编译通过"></a>4. 测试下是否编译通过</h5><h6 id="1-添加模块Demo1，选择Gradle项目-gt-java"><a href="#1-添加模块Demo1，选择Gradle项目-gt-java" class="headerlink" title="1. 添加模块Demo1，选择Gradle项目-&gt; java"></a>1. 添加模块Demo1，选择Gradle项目-&gt; java</h6><h6 id="2-修改项目的build-gradle-增加对spring-context模块的依赖"><a href="#2-修改项目的build-gradle-增加对spring-context模块的依赖" class="headerlink" title="2.  修改项目的build.gradle,增加对spring-context模块的依赖"></a>2.  修改项目的build.gradle,增加对spring-context模块的依赖</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">compile(project(&quot;:spring-context&quot;))</span><br></pre></td></tr></table></figure>
+<h3 id="5-测试下是否编译通过"><a href="#5-测试下是否编译通过" class="headerlink" title="5. 测试下是否编译通过"></a>5. 测试下是否编译通过</h3><h4 id="1-添加模块Demo1，选择Gradle项目-gt-java"><a href="#1-添加模块Demo1，选择Gradle项目-gt-java" class="headerlink" title="1. 添加模块Demo1，选择Gradle项目-&gt; java"></a>1. 添加模块Demo1，选择Gradle项目-&gt; java</h4><h4 id="2-修改项目的build-gradle-增加对spring-context模块的依赖"><a href="#2-修改项目的build-gradle-增加对spring-context模块的依赖" class="headerlink" title="2.  修改项目的build.gradle,增加对spring-context模块的依赖"></a>2.  修改项目的build.gradle,增加对spring-context模块的依赖</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">compile(project(&quot;:spring-context&quot;))</span><br></pre></td></tr></table></figure>
 
-<h6 id="3-修改spring-context模块的spring-context-gradle文件"><a href="#3-修改spring-context模块的spring-context-gradle文件" class="headerlink" title="3.  修改spring-context模块的spring-context.gradle文件"></a>3.  修改spring-context模块的spring-context.gradle文件</h6><p>由于默认配置文件中spring-instrument的引用配置为了optional，造成报错，修改为compile</p>
+<h4 id="3-修改spring-context模块的spring-context-gradle文件"><a href="#3-修改spring-context模块的spring-context-gradle文件" class="headerlink" title="3.  修改spring-context模块的spring-context.gradle文件"></a>3.  修改spring-context模块的spring-context.gradle文件</h4><p>由于默认配置文件中spring-instrument的引用配置为了optional，造成报错，修改为compile</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">compile(project(&quot;:spring-instrument&quot;))</span><br></pre></td></tr></table></figure>
 
-<h6 id="4-添加App-Java文件，代码如下"><a href="#4-添加App-Java文件，代码如下" class="headerlink" title="4.  添加App.Java文件，代码如下"></a>4.  添加App.Java文件，代码如下</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@ComponentScan</span>(<span class="string">"a"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">App</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		AnnotationConfigApplicationContext applicationContext = <span class="keyword">new</span> AnnotationConfigApplicationContext(App.class);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span> (String beanDefinitionName : applicationContext.getBeanDefinitionNames()) &#123;</span><br><span class="line">			System.out.println(beanDefinitionName);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="4-添加App-Java文件，代码如下"><a href="#4-添加App-Java文件，代码如下" class="headerlink" title="4.  添加App.Java文件，代码如下"></a>4.  添加App.Java文件，代码如下</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@ComponentScan</span>(<span class="string">"a"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">App</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		AnnotationConfigApplicationContext applicationContext = <span class="keyword">new</span> AnnotationConfigApplicationContext(App.class);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span> (String beanDefinitionName : applicationContext.getBeanDefinitionNames()) &#123;</span><br><span class="line">			System.out.println(beanDefinitionName);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h6 id="5-添加service-CustomerService-java文件-代码如下"><a href="#5-添加service-CustomerService-java文件-代码如下" class="headerlink" title="5. 添加service/CustomerService.java文件,代码如下:"></a>5. 添加service/CustomerService.java文件,代码如下:</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CustomerService</span> </span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="5-添加service-CustomerService-java文件-代码如下"><a href="#5-添加service-CustomerService-java文件-代码如下" class="headerlink" title="5. 添加service/CustomerService.java文件,代码如下:"></a>5. 添加service/CustomerService.java文件,代码如下:</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CustomerService</span> </span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h6 id="6-运行main函数-输出结果如下"><a href="#6-运行main函数-输出结果如下" class="headerlink" title="6.  运行main函数,输出结果如下"></a>6.  运行main函数,输出结果如下</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">org.springframework.context.annotation.internalConfigurationAnnotationProcessor</span><br><span class="line">org.springframework.context.annotation.internalAutowiredAnnotationProcessor</span><br><span class="line">org.springframework.context.annotation.internalCommonAnnotationProcessor</span><br><span class="line">org.springframework.context.event.internalEventListenerProcessor</span><br><span class="line">org.springframework.context.event.internalEventListenerFactory</span><br><span class="line">app</span><br><span class="line">customerService</span><br></pre></td></tr></table></figure>
+<h4 id="6-运行main函数-输出结果如下"><a href="#6-运行main函数-输出结果如下" class="headerlink" title="6.  运行main函数,输出结果如下"></a>6.  运行main函数,输出结果如下</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">org.springframework.context.annotation.internalConfigurationAnnotationProcessor</span><br><span class="line">org.springframework.context.annotation.internalAutowiredAnnotationProcessor</span><br><span class="line">org.springframework.context.annotation.internalCommonAnnotationProcessor</span><br><span class="line">org.springframework.context.event.internalEventListenerProcessor</span><br><span class="line">org.springframework.context.event.internalEventListenerFactory</span><br><span class="line">app</span><br><span class="line">customerService</span><br></pre></td></tr></table></figure>
 
 <h1 id="2-AnnotationConfigApplicationContext执行流程"><a href="#2-AnnotationConfigApplicationContext执行流程" class="headerlink" title="2.  AnnotationConfigApplicationContext执行流程"></a>2.  AnnotationConfigApplicationContext执行流程</h1><p>使用spring initialzr创建项目,入口类代码如下：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example.demo58;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.AnnotationConfigApplicationContext;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.ComponentScan;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Configuration;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@ComponentScan</span>(<span class="string">"com.example"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo58Application</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        AnnotationConfigApplicationContext   applicationContext = <span class="keyword">new</span> AnnotationConfigApplicationContext(Demo58Application.class);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (String beanDefinitionName : applicationContext.getBeanDefinitionNames()) &#123;</span><br><span class="line">            System.out.println(beanDefinitionName);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -151,134 +152,128 @@
 <p>接下来我们对这三个方法进行分析</p>
 <h2 id="1-this-无参数构造函数"><a href="#1-this-无参数构造函数" class="headerlink" title="1. this();无参数构造函数"></a>1. this();无参数构造函数</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.classLoader = ClassUtils.getDefaultClassLoader();</span><br><span class="line"><span class="keyword">this</span>.resourcePatternResolver = getResourcePatternResolver();</span><br><span class="line"><span class="keyword">this</span>.beanFactory = <span class="keyword">new</span> DefaultListableBeanFactory(); </span><br><span class="line"><span class="keyword">this</span>.reader = <span class="keyword">new</span> AnnotatedBeanDefinitionReader(<span class="keyword">this</span>);</span><br><span class="line"><span class="keyword">this</span>.scanner = <span class="keyword">new</span> ClassPathBeanDefinitionScanner(<span class="keyword">this</span>);</span><br></pre></td></tr></table></figure>
 
-<ol>
-<li><p>初始化classLoader，链式赋值</p>
-<ol>
+<h3 id="1-初始化classLoader，链式赋值"><a href="#1-初始化classLoader，链式赋值" class="headerlink" title="1. 初始化classLoader，链式赋值"></a>1. 初始化classLoader，链式赋值</h3><ol>
 <li>使用当前线程的上下文类加载器【Thread.currentThread().getContextClassLoader()】;</li>
 <li>使用ClassUtils类的类加载器【ClassUtils.class.getClassLoader()】</li>
 <li>使用系统类加载器【ClassLoader.getSystemClassLoader()】</li>
 </ol>
-</li>
-<li><p>初始化resourcePatternResolver,此赋值来源于<strong>AbstractApplicationContext</strong></p>
-<p>使用了PathMatchingResourcePatternResolver,即Ant-style路径模式</p>
-</li>
-<li><p>初始化beanFactory，此赋值来源于<strong>GenericApplicationContext</strong></p>
-</li>
-<li><p>初始化reader,使用注解方式的bean定义读取器</p>
-</li>
-<li><p>初始化scanner,使用类路径方式的bean定义扫描器</p>
-</li>
-</ol>
-<h2 id="2-register-annotatedClasses-调用注册方法"><a href="#2-register-annotatedClasses-调用注册方法" class="headerlink" title="2. register(annotatedClasses);调用注册方法"></a>2. register(annotatedClasses);调用注册方法</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">register</span><span class="params">(Class&lt;?&gt;... annotatedClasses)</span> </span>&#123;</span><br><span class="line">		Assert.notEmpty(annotatedClasses, <span class="string">"At least one annotated class must be specified"</span>);</span><br><span class="line">		<span class="keyword">this</span>.reader.register(annotatedClasses);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-初始化resourcePatternResolver-此赋值来源于AbstractApplicationContext"><a href="#2-初始化resourcePatternResolver-此赋值来源于AbstractApplicationContext" class="headerlink" title="2. 初始化resourcePatternResolver,此赋值来源于AbstractApplicationContext"></a>2. 初始化resourcePatternResolver,此赋值来源于<strong>AbstractApplicationContext</strong></h3><p>使用了PathMatchingResourcePatternResolver,即Ant-style路径模式</p>
+<h3 id="3-初始化beanFactory，此赋值来源于GenericApplicationContext"><a href="#3-初始化beanFactory，此赋值来源于GenericApplicationContext" class="headerlink" title="3. 初始化beanFactory，此赋值来源于GenericApplicationContext"></a>3. 初始化beanFactory，此赋值来源于<strong>GenericApplicationContext</strong></h3><p>默认使用了DefaultListableBeanFactory类型</p>
+<h3 id="4-初始化reader-使用注解方式的bean定义读取器"><a href="#4-初始化reader-使用注解方式的bean定义读取器" class="headerlink" title="4. 初始化reader,使用注解方式的bean定义读取器"></a>4. 初始化reader,使用注解方式的bean定义读取器</h3><p>new AnnotatedBeanDefinitionReader(this)，内部代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.registry = registry;</span><br><span class="line"><span class="keyword">this</span>.conditionEvaluator = <span class="keyword">new</span> ConditionEvaluator(registry, environment, <span class="keyword">null</span>);</span><br><span class="line">AnnotationConfigUtils.registerAnnotationConfigProcessors(<span class="keyword">this</span>.registry);</span><br></pre></td></tr></table></figure>
+
+<p>默认会增加5个内置的PostProcessor:</p>
+<table>
+<thead>
+<tr>
+<th>类</th>
+<th>类别</th>
+<th>接口</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ConfigurationClassPostProcessor</td>
+<td>BeanFactoryPostProcessor</td>
+<td></td>
+<td>通过扫描加载bean定义</td>
+</tr>
+<tr>
+<td>AutowiredAnnotationBeanPostProcessor</td>
+<td>BeanPostProcessor</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CommonAnnotationBeanPostProcessor</td>
+<td>BeanPostProcessor</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>PersistenceAnnotationBeanPostProcessor</td>
+<td>BeanPostProcessor</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>DefaultEventListenerFactory</td>
+<td>EventListenerFactory</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>该方法执行步骤如下：</p>
+<h4 id="1-将当前的容器对象赋值给registry"><a href="#1-将当前的容器对象赋值给registry" class="headerlink" title="1. 将当前的容器对象赋值给registry"></a>1. 将当前的容器对象赋值给registry</h4><h4 id="2-新建conditionEvaluator（条件评估），作用是为对注解进行评估"><a href="#2-新建conditionEvaluator（条件评估），作用是为对注解进行评估" class="headerlink" title="2. 新建conditionEvaluator（条件评估），作用是为对注解进行评估"></a>2. 新建conditionEvaluator（条件评估），作用是为对注解进行评估</h4><h4 id="3-注册预定义的注解配置处理器"><a href="#3-注册预定义的注解配置处理器" class="headerlink" title="3. 注册预定义的注解配置处理器"></a>3. 注册预定义的注解配置处理器</h4><h5 id="1-获取BeanFactory"><a href="#1-获取BeanFactory" class="headerlink" title="1. 获取BeanFactory"></a>1. 获取BeanFactory</h5><h5 id="2-如果BeanFactory有值："><a href="#2-如果BeanFactory有值：" class="headerlink" title="2. 如果BeanFactory有值："></a>2. 如果BeanFactory有值：</h5><h6 id="1-如果beanFactory-getDependencyComparator不是AnnotationAwareOrderComparator的话，调用beanFactory-setDependencyComparator-AnnotationAwareOrderComparator-INSTANCE"><a href="#1-如果beanFactory-getDependencyComparator不是AnnotationAwareOrderComparator的话，调用beanFactory-setDependencyComparator-AnnotationAwareOrderComparator-INSTANCE" class="headerlink" title="1. 如果beanFactory.getDependencyComparator不是AnnotationAwareOrderComparator的话，调用beanFactory.setDependencyComparator(AnnotationAwareOrderComparator.INSTANCE)"></a>1. 如果beanFactory.getDependencyComparator不是AnnotationAwareOrderComparator的话，调用beanFactory.setDependencyComparator(AnnotationAwareOrderComparator.INSTANCE)</h6><h6 id="2-如果beanFactory-getAutowireCandidateResolver不是ContextAnnotationAutowireCandidateResolver，调用beanFactory-setAutowireCandidateResolver-new-ContextAnnotationAutowireCandidateResolver"><a href="#2-如果beanFactory-getAutowireCandidateResolver不是ContextAnnotationAutowireCandidateResolver，调用beanFactory-setAutowireCandidateResolver-new-ContextAnnotationAutowireCandidateResolver" class="headerlink" title="2. 如果beanFactory.getAutowireCandidateResolver不是ContextAnnotationAutowireCandidateResolver，调用beanFactory.setAutowireCandidateResolver(new ContextAnnotationAutowireCandidateResolver())"></a>2. 如果beanFactory.getAutowireCandidateResolver不是ContextAnnotationAutowireCandidateResolver，调用beanFactory.setAutowireCandidateResolver(new ContextAnnotationAutowireCandidateResolver())</h6><h5 id="3-如果registry没有名为org-springframework-context-annotation-internalConfigurationAnnotationProcessor的bean定义，registry添加bean定义，类型为ConfigurationClassPostProcessor"><a href="#3-如果registry没有名为org-springframework-context-annotation-internalConfigurationAnnotationProcessor的bean定义，registry添加bean定义，类型为ConfigurationClassPostProcessor" class="headerlink" title="3. 如果registry没有名为org.springframework.context.annotation.internalConfigurationAnnotationProcessor的bean定义，registry添加bean定义，类型为ConfigurationClassPostProcessor"></a>3. 如果registry没有名为org.springframework.context.annotation.internalConfigurationAnnotationProcessor的bean定义，registry添加bean定义，类型为ConfigurationClassPostProcessor</h5><h5 id="4-如果registry没有名为org-springframework-context-annotation-internalAutowiredAnnotationProcessor的bean定义，registry添加bean定义，类型为AutowiredAnnotationBeanPostProcessor"><a href="#4-如果registry没有名为org-springframework-context-annotation-internalAutowiredAnnotationProcessor的bean定义，registry添加bean定义，类型为AutowiredAnnotationBeanPostProcessor" class="headerlink" title="4. 如果registry没有名为org.springframework.context.annotation.internalAutowiredAnnotationProcessor的bean定义，registry添加bean定义，类型为AutowiredAnnotationBeanPostProcessor"></a>4. 如果registry没有名为org.springframework.context.annotation.internalAutowiredAnnotationProcessor的bean定义，registry添加bean定义，类型为AutowiredAnnotationBeanPostProcessor</h5><h5 id="5-如果具备JSR250功能并且registry没有名为org-springframework-context-annotation-internalCommonAnnotationProcessor的bean定义，registry添加bean定义，类型为CommonAnnotationBeanPostProcessor"><a href="#5-如果具备JSR250功能并且registry没有名为org-springframework-context-annotation-internalCommonAnnotationProcessor的bean定义，registry添加bean定义，类型为CommonAnnotationBeanPostProcessor" class="headerlink" title="5. 如果具备JSR250功能并且registry没有名为org.springframework.context.annotation.internalCommonAnnotationProcessor的bean定义，registry添加bean定义，类型为CommonAnnotationBeanPostProcessor"></a>5. 如果具备JSR250功能并且registry没有名为org.springframework.context.annotation.internalCommonAnnotationProcessor的bean定义，registry添加bean定义，类型为CommonAnnotationBeanPostProcessor</h5><p> 是否具备具备JSR250功能，是通过判断类javax.annotation.Resource是否存在</p>
+<h5 id="6-如果具备JPA功能并且registry没有名为org-springframework-context-annotation-internalPersistenceAnnotationProcessor的bean定义，registry添加bean定义，类型为org-springframework-orm-jpa-support-PersistenceAnnotationBeanPostProcessor"><a href="#6-如果具备JPA功能并且registry没有名为org-springframework-context-annotation-internalPersistenceAnnotationProcessor的bean定义，registry添加bean定义，类型为org-springframework-orm-jpa-support-PersistenceAnnotationBeanPostProcessor" class="headerlink" title="6.  如果具备JPA功能并且registry没有名为org.springframework.context.annotation.internalPersistenceAnnotationProcessor的bean定义，registry添加bean定义，类型为org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor"></a>6.  如果具备JPA功能并且registry没有名为org.springframework.context.annotation.internalPersistenceAnnotationProcessor的bean定义，registry添加bean定义，类型为org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor</h5><p>是否具备具备JPA功能，是通过判断类javax.persistence.EntityManagerFactory是否存在</p>
+<h5 id="7-如果registry没有名为org-springframework-context-event-internalEventListenerProcessor的bean定义，registry添加bean定义，类型为EventListenerMethodProcessor"><a href="#7-如果registry没有名为org-springframework-context-event-internalEventListenerProcessor的bean定义，registry添加bean定义，类型为EventListenerMethodProcessor" class="headerlink" title="7. 如果registry没有名为org.springframework.context.event.internalEventListenerProcessor的bean定义，registry添加bean定义，类型为EventListenerMethodProcessor"></a>7. 如果registry没有名为org.springframework.context.event.internalEventListenerProcessor的bean定义，registry添加bean定义，类型为EventListenerMethodProcessor</h5><h5 id="8-如果registry没有名为org-springframework-context-event-internalEventListenerFactory的bean定义，registry添加bean定义，类型为DefaultEventListenerFactory"><a href="#8-如果registry没有名为org-springframework-context-event-internalEventListenerFactory的bean定义，registry添加bean定义，类型为DefaultEventListenerFactory" class="headerlink" title="8. 如果registry没有名为org.springframework.context.event.internalEventListenerFactory的bean定义，registry添加bean定义，类型为DefaultEventListenerFactory"></a>8. 如果registry没有名为org.springframework.context.event.internalEventListenerFactory的bean定义，registry添加bean定义，类型为DefaultEventListenerFactory</h5><h3 id="5-初始化scanner-使用类路径方式的bean定义扫描器"><a href="#5-初始化scanner-使用类路径方式的bean定义扫描器" class="headerlink" title="5. 初始化scanner,使用类路径方式的bean定义扫描器"></a>5. 初始化scanner,使用类路径方式的bean定义扫描器</h3><h2 id="2-register-annotatedClasses-调用注册方法"><a href="#2-register-annotatedClasses-调用注册方法" class="headerlink" title="2. register(annotatedClasses);调用注册方法"></a>2. register(annotatedClasses);调用注册方法</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">register</span><span class="params">(Class&lt;?&gt;... annotatedClasses)</span> </span>&#123;</span><br><span class="line">		Assert.notEmpty(annotatedClasses, <span class="string">"At least one annotated class must be specified"</span>);</span><br><span class="line">		<span class="keyword">this</span>.reader.register(annotatedClasses);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>调用了reader属性的register方法,代码如下：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">register</span><span class="params">(Class&lt;?&gt;... annotatedClasses)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">for</span> (Class&lt;?&gt; annotatedClass : annotatedClasses) &#123;</span><br><span class="line">			registerBean(annotatedClass);</span><br><span class="line">		&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>registerBean(annotatedClass); 待分析…..</p>
-<h2 id="3-refresh-；刷新方法"><a href="#3-refresh-；刷新方法" class="headerlink" title="3. refresh()；刷新方法"></a>3. refresh()；刷新方法</h2><p>代码如下：</p>
+<p>作用：将annotatedClass对应的bean定义注册到容器中</p>
+<p>循环传入的注解的接口，调用registerBean方法；</p>
+<p>registerBean执行流程如下：</p>
+<h3 id="1-获取annotatedClasses的Bean定义对象"><a href="#1-获取annotatedClasses的Bean定义对象" class="headerlink" title="1. 获取annotatedClasses的Bean定义对象"></a>1. 获取annotatedClasses的Bean定义对象</h3><h3 id="2-调用conditionEvaluator-shouldSkip方法，判断是否应该跳过，由于没有标注conditional注解，不用跳过"><a href="#2-调用conditionEvaluator-shouldSkip方法，判断是否应该跳过，由于没有标注conditional注解，不用跳过" class="headerlink" title="2. 调用conditionEvaluator.shouldSkip方法，判断是否应该跳过，由于没有标注conditional注解，不用跳过"></a>2. 调用conditionEvaluator.shouldSkip方法，判断是否应该跳过，由于没有标注conditional注解，不用跳过</h3><h3 id="3-获取作用范围元数据信息"><a href="#3-获取作用范围元数据信息" class="headerlink" title="3. 获取作用范围元数据信息"></a>3. 获取作用范围元数据信息</h3><h3 id="4-调用AnnotationConfigUtils-processCommonDefinitionAnnotations-abd-，作用是根据类标注的注解信息设置bean定义属性"><a href="#4-调用AnnotationConfigUtils-processCommonDefinitionAnnotations-abd-，作用是根据类标注的注解信息设置bean定义属性" class="headerlink" title="4. 调用AnnotationConfigUtils.processCommonDefinitionAnnotations(abd)，作用是根据类标注的注解信息设置bean定义属性"></a>4. 调用AnnotationConfigUtils.processCommonDefinitionAnnotations(abd)，作用是根据类标注的注解信息设置bean定义属性</h3><p>​    是否标注了lazy注解，标注的话设置setLazyInit</p>
+<p>​    是否标注了Primary注解，标注的话设置setPrimary为true</p>
+<p>​    是否标注了DependsOn注解，标注的话设置setDependsOn</p>
+<p>​    是否标注了Role注解，标注的话设置setRole</p>
+<p>​    是否标注了Description注解，标注的话设置setDescription</p>
+<h3 id="5-将bean定义添加到容器中，调用BeanDefinitionReaderUtils-registerBeanDefinition-definitionHolder-this-registry"><a href="#5-将bean定义添加到容器中，调用BeanDefinitionReaderUtils-registerBeanDefinition-definitionHolder-this-registry" class="headerlink" title="5. 将bean定义添加到容器中，调用BeanDefinitionReaderUtils.registerBeanDefinition(definitionHolder, this.registry)"></a>5. 将bean定义添加到容器中，调用BeanDefinitionReaderUtils.registerBeanDefinition(definitionHolder, this.registry)</h3><h2 id="3-refresh-；刷新方法"><a href="#3-refresh-；刷新方法" class="headerlink" title="3. refresh()；刷新方法"></a>3. refresh()；刷新方法</h2><p>代码如下：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">synchronized</span> (<span class="keyword">this</span>.startupShutdownMonitor) &#123;</span><br><span class="line">			prepareRefresh();</span><br><span class="line">			ConfigurableListableBeanFactory beanFactory = obtainFreshBeanFactory();</span><br><span class="line">			prepareBeanFactory(beanFactory);</span><br><span class="line">			<span class="keyword">try</span> &#123;</span><br><span class="line">				postProcessBeanFactory(beanFactory);</span><br><span class="line">				invokeBeanFactoryPostProcessors(beanFactory);</span><br><span class="line">				registerBeanPostProcessors(beanFactory);</span><br><span class="line">				initMessageSource();</span><br><span class="line">				initApplicationEventMulticaster();</span><br><span class="line">				onRefresh();</span><br><span class="line">				registerListeners();</span><br><span class="line">				finishBeanFactoryInitialization(beanFactory);</span><br><span class="line">				finishRefresh();</span><br><span class="line">			&#125;<span class="keyword">catch</span> (BeansException ex) &#123;</span><br><span class="line">				destroyBeans();</span><br><span class="line">				cancelRefresh(ex);</span><br><span class="line">				<span class="keyword">throw</span> ex;</span><br><span class="line">			&#125;<span class="keyword">finally</span> &#123;</span><br><span class="line">				resetCommonCaches();</span><br><span class="line">			&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="1-synchronized-this-startupShutdownMonitor-线程同步"><a href="#1-synchronized-this-startupShutdownMonitor-线程同步" class="headerlink" title="1.  synchronized (this.startupShutdownMonitor); 线程同步"></a>1.  synchronized (this.startupShutdownMonitor); 线程同步</h3><h3 id="2-prepareRefresh"><a href="#2-prepareRefresh" class="headerlink" title="2.  prepareRefresh()"></a>2.  prepareRefresh()</h3><blockquote>
-<p>刷新前准备</p>
-</blockquote>
+<h3 id="1-synchronized-this-startupShutdownMonitor-线程同步"><a href="#1-synchronized-this-startupShutdownMonitor-线程同步" class="headerlink" title="1.  synchronized (this.startupShutdownMonitor); 线程同步"></a>1.  synchronized (this.startupShutdownMonitor); 线程同步</h3><h3 id="2-prepareRefresh"><a href="#2-prepareRefresh" class="headerlink" title="2.  prepareRefresh()"></a>2.  prepareRefresh()</h3><p>作用：刷新前准备</p>
 <p>执行过程如下：</p>
-<ol>
-<li><p>startupDate设置为当前时间</p>
-</li>
-<li><p>closed为false</p>
-</li>
-<li><p>active为true</p>
-</li>
-<li><p>initPropertySources()，初始化属性来源</p>
-</li>
-<li><p>getEnvironment().validateRequiredProperties()，验证必要的属性</p>
-</li>
-<li><p>判断earlyApplicationListeners是否为null，</p>
-</li>
-</ol>
-<p>​       如果为null,说明是容器是首次运行，earlyApplicationListeners值来源于applicationListeners，而此时的applicationListeners数据是通过调用了容器的addApplicationListener()方法添加的。</p>
-<pre><code>不为null,重置下applicationListeners：清空，将earlyApplicationListeners全部加进来。</code></pre><ol start="7">
-<li>初始化earlyApplicationEvents为LinkedHashSet    </li>
-</ol>
-<h3 id="3-ConfigurableListableBeanFactory-beanFactory-obtainFreshBeanFactory"><a href="#3-ConfigurableListableBeanFactory-beanFactory-obtainFreshBeanFactory" class="headerlink" title="3. ConfigurableListableBeanFactory beanFactory = obtainFreshBeanFactory();"></a>3. ConfigurableListableBeanFactory beanFactory = obtainFreshBeanFactory();</h3><blockquote>
-<p>刷新下BeanFactory,并且返回</p>
-</blockquote>
-<p>  this.beanFactory.setSerializationId(getId());</p>
+<h4 id="1-startupDate设置为当前时间"><a href="#1-startupDate设置为当前时间" class="headerlink" title="1. startupDate设置为当前时间"></a>1. startupDate设置为当前时间</h4><h4 id="2-closed为false"><a href="#2-closed为false" class="headerlink" title="2. closed为false"></a>2. closed为false</h4><h4 id="3-active为true"><a href="#3-active为true" class="headerlink" title="3.  active为true"></a>3.  active为true</h4><h4 id="4-initPropertySources-，初始化属性来源"><a href="#4-initPropertySources-，初始化属性来源" class="headerlink" title="4. initPropertySources()，初始化属性来源"></a>4. initPropertySources()，初始化属性来源</h4><h4 id="5-getEnvironment-validateRequiredProperties-，验证必要的属性，如果Environment不存在使用StandardEnvironment实例"><a href="#5-getEnvironment-validateRequiredProperties-，验证必要的属性，如果Environment不存在使用StandardEnvironment实例" class="headerlink" title="5. getEnvironment().validateRequiredProperties()，验证必要的属性，如果Environment不存在使用StandardEnvironment实例"></a>5. getEnvironment().validateRequiredProperties()，验证必要的属性，如果Environment不存在使用StandardEnvironment实例</h4><h4 id="6-判断earlyApplicationListeners是否为null"><a href="#6-判断earlyApplicationListeners是否为null" class="headerlink" title="6. 判断earlyApplicationListeners是否为null"></a>6. 判断earlyApplicationListeners是否为null</h4><h5 id="1-如果为null-说明是容器是首次运行，earlyApplicationListeners值来源于applicationListeners，而此时的applicationListeners数据是通过调用了容器的addApplicationListener-方法添加的。"><a href="#1-如果为null-说明是容器是首次运行，earlyApplicationListeners值来源于applicationListeners，而此时的applicationListeners数据是通过调用了容器的addApplicationListener-方法添加的。" class="headerlink" title="1. 如果为null,说明是容器是首次运行，earlyApplicationListeners值来源于applicationListeners，而此时的applicationListeners数据是通过调用了容器的addApplicationListener()方法添加的。"></a>1. 如果为null,说明是容器是首次运行，earlyApplicationListeners值来源于applicationListeners，而此时的applicationListeners数据是通过调用了容器的addApplicationListener()方法添加的。</h5><h5 id="2-不为null-重置下applicationListeners：清空，将earlyApplicationListeners全部加进来。"><a href="#2-不为null-重置下applicationListeners：清空，将earlyApplicationListeners全部加进来。" class="headerlink" title="2. 不为null,重置下applicationListeners：清空，将earlyApplicationListeners全部加进来。"></a>2. 不为null,重置下applicationListeners：清空，将earlyApplicationListeners全部加进来。</h5><h4 id="7-初始化earlyApplicationEvents为LinkedHashSet"><a href="#7-初始化earlyApplicationEvents为LinkedHashSet" class="headerlink" title="7. 初始化earlyApplicationEvents为LinkedHashSet"></a>7. 初始化earlyApplicationEvents为LinkedHashSet</h4><h3 id="3-ConfigurableListableBeanFactory-beanFactory-obtainFreshBeanFactory"><a href="#3-ConfigurableListableBeanFactory-beanFactory-obtainFreshBeanFactory" class="headerlink" title="3. ConfigurableListableBeanFactory beanFactory = obtainFreshBeanFactory();"></a>3. ConfigurableListableBeanFactory beanFactory = obtainFreshBeanFactory();</h3><p>作用： 刷新下BeanFactory,并且返回</p>
+<p>this.beanFactory.setSerializationId(getId());</p>
 <p>将beanFactory的SerializationId设置为容器的id</p>
-<h3 id="4-prepareBeanFactory-beanFactory"><a href="#4-prepareBeanFactory-beanFactory" class="headerlink" title="4.  prepareBeanFactory(beanFactory);"></a>4.  prepareBeanFactory(beanFactory);</h3><blockquote>
-<p>准备beanFactory</p>
-</blockquote>
+<h3 id="4-prepareBeanFactory-beanFactory"><a href="#4-prepareBeanFactory-beanFactory" class="headerlink" title="4.  prepareBeanFactory(beanFactory);"></a>4.  prepareBeanFactory(beanFactory);</h3><p>作用：准备beanFactory</p>
+<h4 id="1-设置beanClassLoader，使用容器构造函数中获得的classLoader"><a href="#1-设置beanClassLoader，使用容器构造函数中获得的classLoader" class="headerlink" title="1. 设置beanClassLoader，使用容器构造函数中获得的classLoader."></a>1. 设置beanClassLoader，使用容器构造函数中获得的classLoader.</h4><h4 id="2-设置beanExpressionResolver为StandardBeanExpressionResolver"><a href="#2-设置beanExpressionResolver为StandardBeanExpressionResolver" class="headerlink" title="2. 设置beanExpressionResolver为StandardBeanExpressionResolver"></a>2. 设置beanExpressionResolver为StandardBeanExpressionResolver</h4><p>表达式使用SpelExpressionParser，即SPEL表达式解析器</p>
+<h4 id="3-调用addBeanPostProcessor-添加bean后置处理器ApplicationContextAwareProcessor"><a href="#3-调用addBeanPostProcessor-添加bean后置处理器ApplicationContextAwareProcessor" class="headerlink" title="3. 调用addBeanPostProcessor(),添加bean后置处理器ApplicationContextAwareProcessor"></a>3. 调用addBeanPostProcessor(),添加bean后置处理器ApplicationContextAwareProcessor</h4><p>ApplicationContextAwareProcessor实现了BeanPostProcessor，作用是为实现了**Aware接口bean赋值。</p>
+<p>**Aware接口有：EnvironmentAware，EmbeddedValueResolverAware，ResourceLoaderAware，ApplicationEventPublisherAware，MessageSourceAware，ApplicationContextAware</p>
+<h4 id="4-调用ignoreDependencyInterface-添加忽略接口-忽略的接口类型有："><a href="#4-调用ignoreDependencyInterface-添加忽略接口-忽略的接口类型有：" class="headerlink" title="4. 调用ignoreDependencyInterface(),添加忽略接口,忽略的接口类型有："></a>4. 调用ignoreDependencyInterface(),添加忽略接口,忽略的接口类型有：</h4><h5 id="1-EnvironmentAware"><a href="#1-EnvironmentAware" class="headerlink" title="1. EnvironmentAware"></a>1. EnvironmentAware</h5><h5 id="2-EmbeddedValueResolverAware"><a href="#2-EmbeddedValueResolverAware" class="headerlink" title="2. EmbeddedValueResolverAware"></a>2. EmbeddedValueResolverAware</h5><h5 id="3-ResourceLoaderAware"><a href="#3-ResourceLoaderAware" class="headerlink" title="3. ResourceLoaderAware"></a>3. ResourceLoaderAware</h5><h5 id="4-ApplicationEventPublisherAware"><a href="#4-ApplicationEventPublisherAware" class="headerlink" title="4. ApplicationEventPublisherAware"></a>4. ApplicationEventPublisherAware</h5><h5 id="5-MessageSourceAware"><a href="#5-MessageSourceAware" class="headerlink" title="5. MessageSourceAware"></a>5. MessageSourceAware</h5><h5 id="6-ApplicationContextAware"><a href="#6-ApplicationContextAware" class="headerlink" title="6. ApplicationContextAware"></a>6. ApplicationContextAware</h5><h4 id="5-调用registerResolvableDependency-添加可解析的依赖"><a href="#5-调用registerResolvableDependency-添加可解析的依赖" class="headerlink" title="5. 调用registerResolvableDependency(), 添加可解析的依赖"></a>5. 调用registerResolvableDependency(), 添加可解析的依赖</h4><h5 id="1-BeanFactory"><a href="#1-BeanFactory" class="headerlink" title="1. BeanFactory"></a>1. BeanFactory</h5><h5 id="2-ResourceLoader"><a href="#2-ResourceLoader" class="headerlink" title="2. ResourceLoader"></a>2. ResourceLoader</h5><h5 id="3-ApplicationEventPublisher"><a href="#3-ApplicationEventPublisher" class="headerlink" title="3. ApplicationEventPublisher"></a>3. ApplicationEventPublisher</h5><h5 id="4-ApplicationContext"><a href="#4-ApplicationContext" class="headerlink" title="4. ApplicationContext"></a>4. ApplicationContext</h5><h4 id="6-调用addBeanPostProcessor-添加bean后置处理器ApplicationListenerDetector"><a href="#6-调用addBeanPostProcessor-添加bean后置处理器ApplicationListenerDetector" class="headerlink" title="6. 调用addBeanPostProcessor(),添加bean后置处理器ApplicationListenerDetector"></a>6. 调用addBeanPostProcessor(),添加bean后置处理器ApplicationListenerDetector</h4><h4 id="7-设置类加载期织入LTW（Load-Time-Weaving）"><a href="#7-设置类加载期织入LTW（Load-Time-Weaving）" class="headerlink" title="7. 设置类加载期织入LTW（Load Time Weaving）"></a>7. 设置类加载期织入LTW（Load Time Weaving）</h4><h4 id="8-调用registerSingleton-注册单例"><a href="#8-调用registerSingleton-注册单例" class="headerlink" title="8. 调用registerSingleton(),注册单例"></a>8. 调用registerSingleton(),注册单例</h4><p>key和value对应关系如下：</p>
 <ol>
-<li>设置beanClassLoader</li>
-<li>设置beanExpressionResolver为StandardBeanExpressionResolver</li>
-<li>调用addBeanPostProcessor(),添加bean后置处理器<strong>ApplicationContextAwareProcessor</strong></li>
-<li>调用ignoreDependencyInterface(),添加忽略接口,忽略的接口类型有：<ol>
-<li>EnvironmentAware</li>
-<li>EmbeddedValueResolverAware</li>
-<li>ResourceLoaderAware</li>
-<li>ApplicationEventPublisherAware</li>
-<li>MessageSourceAware</li>
-<li>MessageSourceAware</li>
-</ol>
-</li>
-<li>调用registerResolvableDependency(), 添加可解析的依赖<ol>
-<li>BeanFactory</li>
-<li>ResourceLoader</li>
-<li>ApplicationEventPublisher</li>
-<li>ApplicationContext</li>
-</ol>
-</li>
-<li>调用addBeanPostProcessor(),添加bean后置处理器<strong>ApplicationListenerDetector</strong></li>
-<li>设置类加载期织入LTW（Load Time Weaving）</li>
-<li>调用registerSingleton(),注册单例，key和value对应关系如下：<ol>
 <li>environment    &gt;&gt;    ConfigurableEnvironment</li>
 <li>systemProperties    &gt;&gt;    getEnvironment().getSystemProperties()</li>
 <li>systemEnvironment    &gt;&gt;    getEnvironment().getSystemEnvironment()</li>
 </ol>
-</li>
-</ol>
-<h3 id="5-postProcessBeanFactory-beanFactory"><a href="#5-postProcessBeanFactory-beanFactory" class="headerlink" title="5. postProcessBeanFactory(beanFactory);"></a>5. postProcessBeanFactory(beanFactory);</h3><blockquote>
-<p>预处理BeanFactory，留给子类来实现</p>
-</blockquote>
-<h3 id="6-invokeBeanFactoryPostProcessors-beanFactory"><a href="#6-invokeBeanFactoryPostProcessors-beanFactory" class="headerlink" title="6. invokeBeanFactoryPostProcessors(beanFactory);"></a>6. invokeBeanFactoryPostProcessors(beanFactory);</h3><blockquote>
-<p>触发BeanFactroy后置处理器</p>
-</blockquote>
+<h3 id="5-postProcessBeanFactory-beanFactory"><a href="#5-postProcessBeanFactory-beanFactory" class="headerlink" title="5. postProcessBeanFactory(beanFactory);"></a>5. postProcessBeanFactory(beanFactory);</h3><p>作用：预处理BeanFactory，留给子类来实现</p>
+<h3 id="6-invokeBeanFactoryPostProcessors-beanFactory"><a href="#6-invokeBeanFactoryPostProcessors-beanFactory" class="headerlink" title="6. invokeBeanFactoryPostProcessors(beanFactory);"></a>6. invokeBeanFactoryPostProcessors(beanFactory);</h3><p>作用：触发BeanFactroy后置处理器</p>
 <p>流程如下：</p>
-<h4 id="1-getBeanFactoryPostProcessors-，得到手动添加的BeanFactroy后置处理器"><a href="#1-getBeanFactoryPostProcessors-，得到手动添加的BeanFactroy后置处理器" class="headerlink" title="1.  getBeanFactoryPostProcessors()，得到手动添加的BeanFactroy后置处理器"></a>1.  getBeanFactoryPostProcessors()，得到手动添加的BeanFactroy后置处理器</h4><p>   此时的来源主要是手动的，是通过调用addBeanFactoryPostProcessor()添加的</p>
-<h4 id="2-PostProcessorRegistrationDelegate-invokeBeanFactoryPostProcessors-）"><a href="#2-PostProcessorRegistrationDelegate-invokeBeanFactoryPostProcessors-）" class="headerlink" title="2.  PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(）"></a>2.  PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(）</h4><blockquote>
-<p>触发BeanFactroy后置处理器</p>
-</blockquote>
-<h5 id="1-判断beanFacotry是否是BeanDefinitionRegistry的实例，满足条件的话-执行下面的逻辑："><a href="#1-判断beanFacotry是否是BeanDefinitionRegistry的实例，满足条件的话-执行下面的逻辑：" class="headerlink" title="1.判断beanFacotry是否是BeanDefinitionRegistry的实例，满足条件的话,执行下面的逻辑："></a>1.判断beanFacotry是否是BeanDefinitionRegistry的实例，满足条件的话,执行下面的逻辑：</h5><ol>
-<li><p>遍历beanFactoryPostProcessors,</p>
-<pre><code>1.  如果当前的后置处理器是BeanDefinitionRegistryPostProcessor的实例
-        1.  触发postProcessBeanDefinitionRegistry方法
-        2.  添加到registryProcessors列表中
-2.  否则的话，添加到regularPostProcessors列表中</code></pre></li>
-<li><p>执行beanFatory中实现了BeanDefinitionRegistryPostProcessor类型</p>
-<pre><code>  1.  执行实现了PriorityOrdered接口的BeanFactory后置处理器
-          1.  排序
-          2.  触发BeanDefinitionRegistryPostProcessor.postProcessBeanDefinitionRegistry方法
-  2.  执行实现了Ordered接口的BeanFactory后置处理器
-1. 排序
-2. 触发BeanDefinitionRegistryPostProcessor.postProcessBeanDefinitionRegistry方法</code></pre><ol start="3">
+<h4 id="1-getBeanFactoryPostProcessors-，得到当前存在的BeanFactroy后置处理器"><a href="#1-getBeanFactoryPostProcessors-，得到当前存在的BeanFactroy后置处理器" class="headerlink" title="1.  getBeanFactoryPostProcessors()，得到当前存在的BeanFactroy后置处理器"></a>1.  getBeanFactoryPostProcessors()，得到当前存在的BeanFactroy后置处理器</h4><p>此时的来源是手动通过调用addBeanFactoryPostProcessor()添加的</p>
+<h4 id="2-PostProcessorRegistrationDelegate-invokeBeanFactoryPostProcessors-）"><a href="#2-PostProcessorRegistrationDelegate-invokeBeanFactoryPostProcessors-）" class="headerlink" title="2.  PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(）"></a>2.  PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(）</h4><p>作用： 触发BeanFactroy后置处理器</p>
+<h5 id="1-判断beanFacotry是否是BeanDefinitionRegistry的实例，满足条件的话-执行下面的逻辑："><a href="#1-判断beanFacotry是否是BeanDefinitionRegistry的实例，满足条件的话-执行下面的逻辑：" class="headerlink" title="1. 判断beanFacotry是否是BeanDefinitionRegistry的实例，满足条件的话,执行下面的逻辑："></a>1. 判断beanFacotry是否是BeanDefinitionRegistry的实例，满足条件的话,执行下面的逻辑：</h5><h6 id="1-遍历beanFactoryPostProcessors"><a href="#1-遍历beanFactoryPostProcessors" class="headerlink" title="1. 遍历beanFactoryPostProcessors"></a>1. 遍历beanFactoryPostProcessors</h6><ol>
+<li><p>如果当前的后置处理器是BeanDefinitionRegistryPostProcessor的实例</p>
+<ol>
+<li>触发postProcessBeanDefinitionRegistry方法</li>
+<li>添加到registryProcessors列表中</li>
+</ol>
+</li>
+<li><p>否则的话，添加到regularPostProcessors列表中</p>
+<h6 id="2-执行beanFatory中实现了BeanDefinitionRegistryPostProcessor类型"><a href="#2-执行beanFatory中实现了BeanDefinitionRegistryPostProcessor类型" class="headerlink" title="2. 执行beanFatory中实现了BeanDefinitionRegistryPostProcessor类型"></a>2. 执行beanFatory中实现了BeanDefinitionRegistryPostProcessor类型</h6></li>
+<li><p>执行实现了PriorityOrdered接口的BeanFactory后置处理器</p>
+<p> 默认只有一个：ConfigurationClassPostProcessor</p>
+<ol>
+<li>排序</li>
+<li>触发BeanDefinitionRegistryPostProcessor.postProcessBeanDefinitionRegistry方法</li>
+</ol>
+</li>
+<li><p>执行实现了Ordered接口的BeanFactory后置处理器</p>
+<ol>
+<li>排序</li>
+<li>触发BeanDefinitionRegistryPostProcessor.postProcessBeanDefinitionRegistry方法<br>这一步会调用ConfigurationClassPostProcessor的方法通过ComponentScan注解加载bean的定义</li>
+</ol>
+</li>
 <li><p>执行剩下的后置处理器</p>
 <ol>
-<li><p>排序</p>
-</li>
-<li><p>触发BeanDefinitionRegistryPostProcessor.postProcessBeanDefinitionRegistry方法</p>
-</li>
-<li><p>执行在容器中注册的beanFactoryPostProcessor的postProcessBeanFactory方法</p>
-</li>
-<li><p>执行手动注册的beanFactoryPostProcessor的postProcessBeanFactory方法</p>
-</li>
+<li>排序</li>
+<li>触发BeanDefinitionRegistryPostProcessor.postProcessBeanDefinitionRegistry方法</li>
+<li>执行在容器中注册的beanFactoryPostProcessor的postProcessBeanFactory方法</li>
+<li>执行手动注册的beanFactoryPostProcessor的postProcessBeanFactory方法</li>
 </ol>
 </li>
 </ol>
-</li>
-</ol>
-<ol start="2">
-<li><h5 id="如果beanFactory不是BeanDefinitionRegistry的实例，调用手动注册的beanFactoryPostProcessor的postProcessBeanFactory方法"><a href="#如果beanFactory不是BeanDefinitionRegistry的实例，调用手动注册的beanFactoryPostProcessor的postProcessBeanFactory方法" class="headerlink" title="如果beanFactory不是BeanDefinitionRegistry的实例，调用手动注册的beanFactoryPostProcessor的postProcessBeanFactory方法"></a>如果beanFactory不是BeanDefinitionRegistry的实例，调用手动注册的beanFactoryPostProcessor的postProcessBeanFactory方法</h5></li>
-<li><h5 id="处理beanFactory中类型是BeanFactoryPostProcessor的-已经处理的跳过"><a href="#处理beanFactory中类型是BeanFactoryPostProcessor的-已经处理的跳过" class="headerlink" title="处理beanFactory中类型是BeanFactoryPostProcessor的,已经处理的跳过"></a>处理beanFactory中类型是BeanFactoryPostProcessor的,已经处理的跳过</h5><ol>
+<h5 id="2-如果beanFactory不是BeanDefinitionRegistry的实例，调用手动注册的beanFactoryPostProcessor的postProcessBeanFactory方法"><a href="#2-如果beanFactory不是BeanDefinitionRegistry的实例，调用手动注册的beanFactoryPostProcessor的postProcessBeanFactory方法" class="headerlink" title="2. 如果beanFactory不是BeanDefinitionRegistry的实例，调用手动注册的beanFactoryPostProcessor的postProcessBeanFactory方法"></a>2. 如果beanFactory不是BeanDefinitionRegistry的实例，调用手动注册的beanFactoryPostProcessor的postProcessBeanFactory方法</h5><h5 id="3-处理beanFactory中类型是BeanFactoryPostProcessor的-已经处理的跳过"><a href="#3-处理beanFactory中类型是BeanFactoryPostProcessor的-已经处理的跳过" class="headerlink" title="3.  处理beanFactory中类型是BeanFactoryPostProcessor的,已经处理的跳过"></a>3.  处理beanFactory中类型是BeanFactoryPostProcessor的,已经处理的跳过</h5><ol>
 <li>处理实现了接口PriorityOrdered的<ol>
 <li>排序</li>
 <li>调用BeanFactoryPostProcessor.postProcessBeanFactory方法</li>
@@ -291,10 +286,7 @@
 </li>
 <li>处理剩下的,调用BeanFactoryPostProcessor.postProcessBeanFactory方法</li>
 </ol>
-</li>
-<li><h5 id="beanFactory-clearMetadataCache"><a href="#beanFactory-clearMetadataCache" class="headerlink" title="beanFactory.clearMetadataCache()"></a>beanFactory.clearMetadataCache()</h5></li>
-</ol>
-<h4 id="3-处理loadTimeWeaver"><a href="#3-处理loadTimeWeaver" class="headerlink" title="3.  处理loadTimeWeaver"></a>3.  处理loadTimeWeaver</h4><h3 id="7-registerBeanPostProcessors-beanFactory"><a href="#7-registerBeanPostProcessors-beanFactory" class="headerlink" title="7. registerBeanPostProcessors(beanFactory)"></a>7. registerBeanPostProcessors(beanFactory)</h3><blockquote>
+<h5 id="4-beanFactory-clearMetadataCache"><a href="#4-beanFactory-clearMetadataCache" class="headerlink" title="4. beanFactory.clearMetadataCache()"></a>4. beanFactory.clearMetadataCache()</h5><h4 id="3-处理loadTimeWeaver"><a href="#3-处理loadTimeWeaver" class="headerlink" title="3.  处理loadTimeWeaver"></a>3.  处理loadTimeWeaver</h4><h3 id="7-registerBeanPostProcessors-beanFactory"><a href="#7-registerBeanPostProcessors-beanFactory" class="headerlink" title="7. registerBeanPostProcessors(beanFactory)"></a>7. registerBeanPostProcessors(beanFactory)</h3><blockquote>
 <p>注册Bean后置处理器</p>
 </blockquote>
 <p>调用了 PostProcessorRegistrationDelegate.registerBeanPostProcessors(beanFactory, this)，执行流程如下：</p>
@@ -358,14 +350,53 @@
 <h4 id="6-调用populateBean"><a href="#6-调用populateBean" class="headerlink" title="6. 调用populateBean"></a>6. 调用populateBean</h4><p>循环BeanPostProcessor,执行类型为InstantiationAwareBeanPostProcessor的postProcessAfterInstantiation方法</p>
 <h4 id="7-调用initializeBean"><a href="#7-调用initializeBean" class="headerlink" title="7. 调用initializeBean"></a>7. 调用initializeBean</h4><h5 id="1-调用invokeAwareMethods，为实现了BeanNameAware，BeanClassLoaderAware，BeanFactoryAware赋值属性"><a href="#1-调用invokeAwareMethods，为实现了BeanNameAware，BeanClassLoaderAware，BeanFactoryAware赋值属性" class="headerlink" title="1. 调用invokeAwareMethods，为实现了BeanNameAware，BeanClassLoaderAware，BeanFactoryAware赋值属性"></a>1. 调用invokeAwareMethods，为实现了BeanNameAware，BeanClassLoaderAware，BeanFactoryAware赋值属性</h5><h5 id="2-循环BeanPostProcessor，执行postProcessBeforeInitialization方法"><a href="#2-循环BeanPostProcessor，执行postProcessBeforeInitialization方法" class="headerlink" title="2. 循环BeanPostProcessor，执行postProcessBeforeInitialization方法"></a>2. 循环BeanPostProcessor，执行postProcessBeforeInitialization方法</h5><h5 id="3-调用invokeInitMethods完成初始化"><a href="#3-调用invokeInitMethods完成初始化" class="headerlink" title="3. 调用invokeInitMethods完成初始化"></a>3. 调用invokeInitMethods完成初始化</h5><p>如果bean实现了InitializingBean接口，执行InitializingBean.afterPropertiesSet方法</p>
 <p>如果bean定义中表明了使用初始化方法（@bean(initMethod)）,调用对应的方法</p>
-<h5 id="4-循环BeanPostProcessor，执行postProcessAfterInitialization方法"><a href="#4-循环BeanPostProcessor，执行postProcessAfterInitialization方法" class="headerlink" title="4. 循环BeanPostProcessor，执行postProcessAfterInitialization方法"></a>4. 循环BeanPostProcessor，执行postProcessAfterInitialization方法</h5><p>​        </p>
+<h5 id="4-循环BeanPostProcessor，执行postProcessAfterInitialization方法"><a href="#4-循环BeanPostProcessor，执行postProcessAfterInitialization方法" class="headerlink" title="4. 循环BeanPostProcessor，执行postProcessAfterInitialization方法"></a>4. 循环BeanPostProcessor，执行postProcessAfterInitialization方法</h5><p>BeanFactoryPostProcessor接口</p>
+<p>签名为：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@FunctionalInterface</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">BeanFactoryPostProcessor</span> </span>&#123;</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * Modify the application context's internal bean factory after its standard</span></span><br><span class="line"><span class="comment">	 * initialization. All bean definitions will have been loaded, but no beans</span></span><br><span class="line"><span class="comment">	 * will have been instantiated yet. This allows for overriding or adding</span></span><br><span class="line"><span class="comment">	 * properties even to eager-initializing beans.</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> beanFactory the bean factory used by the application context</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@throws</span> org.springframework.beans.BeansException in case of errors</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">postProcessBeanFactory</span><span class="params">(ConfigurableListableBeanFactory beanFactory)</span> <span class="keyword">throws</span> BeansException</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在生命周期的InvokeBeanFactoryPostProcessor阶段执行</p>
+<p>子接口：BeanDefinitionRegistryPostProcessor</p>
+<p>签名为:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Extension to the standard &#123;<span class="doctag">@link</span> BeanFactoryPostProcessor&#125; SPI, allowing for</span></span><br><span class="line"><span class="comment"> * the registration of further bean definitions &lt;i&gt;before&lt;/i&gt; regular</span></span><br><span class="line"><span class="comment"> * BeanFactoryPostProcessor detection kicks in. In particular,</span></span><br><span class="line"><span class="comment"> * BeanDefinitionRegistryPostProcessor may register further bean definitions</span></span><br><span class="line"><span class="comment"> * which in turn define BeanFactoryPostProcessor instances.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Juergen Hoeller</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@since</span> 3.0.1</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@see</span> org.springframework.context.annotation.ConfigurationClassPostProcessor</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">BeanDefinitionRegistryPostProcessor</span> <span class="keyword">extends</span> <span class="title">BeanFactoryPostProcessor</span> </span>&#123;</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * Modify the application context's internal bean definition registry after its</span></span><br><span class="line"><span class="comment">	 * standard initialization. All regular bean definitions will have been loaded,</span></span><br><span class="line"><span class="comment">	 * but no beans will have been instantiated yet. This allows for adding further</span></span><br><span class="line"><span class="comment">	 * bean definitions before the next post-processing phase kicks in.</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> registry the bean definition registry used by the application context</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@throws</span> org.springframework.beans.BeansException in case of errors</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">postProcessBeanDefinitionRegistry</span><span class="params">(BeanDefinitionRegistry registry)</span> <span class="keyword">throws</span> BeansException</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>ConfigurationClassPostProcessor类</p>
+<p>签名如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ConfigurationClassPostProcessor</span> <span class="keyword">implements</span> <span class="title">BeanDefinitionRegistryPostProcessor</span>,</span></span><br><span class="line"><span class="class">		<span class="title">PriorityOrdered</span>, <span class="title">ResourceLoaderAware</span>, <span class="title">BeanClassLoaderAware</span>, <span class="title">EnvironmentAware</span> </span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>初始化时机：</p>
+<p>BeanDefinitionRegistryPostProcessor的Bean定义在AnnotationConfigApplicationContenxt构造函数初始化reader的时候添加到BeanFactory中</p>
+<p>实现了ResourceLoaderAware，BeanClassLoaderAware和EnvironmentAware此三个接口对应的资源ResourceLoader，BeanClassLoader和Environment是在PrepareBeanFactory阶段添加到容器中</p>
+<p>作用：加载bean定义；</p>
+<p>由于此类实现了BeanDefinitionRegistryPostProcessor所以我们关注两个重写方法：</p>
+<p>postProcessBeanDefinitionRegistry，postProcessBeanFactory</p>
+<p>先分析下postProcessBeanDefinitionRegistry</p>
+<p>执行过程：</p>
+<ol>
+<li><p>打标记防止重复执行</p>
+</li>
+<li><p>循环容器中所有的bean定义名称，从中选出候选配置类</p>
+<p>判断是否是候选配置类，分两种一个是完整版的(full),一个是精简版的(lite);full是指标注了@Configuration的类；精简版是指标注了任意一个以下的注解：@Component，@ComponentScan，@Import，@ImportResource或者该类中存在标注了@Bean的方法。</p>
+</li>
+<li><p>如果候选配置列表为空，直接退出</p>
+</li>
+<li><p>候选配置列表中的成员进行排序</p>
+</li>
+<li><p>创建配置类解析器（ConfigurationClassParser）</p>
+</li>
+<li><p>调用配置类解析器的parse解析候选配置类列表</p>
+</li>
+<li><p>调用配置类解析器的validate</p>
+</li>
+</ol>
+<p>​        </p>
 <p>未解之谜：</p>
+<p>循环依赖的解决</p>
 <p>ConfigurableEnvironment, getSystemProperties,getSystemEnvironment</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liu-rui.github.io/2019/07/01/spring源码分析/" data-id="cjxjsgm5g0006f4nn1y5fgga8" class="article-share-link">Share</a>
+      <a data-url="https://liu-rui.github.io/2019/07/01/spring源码分析/" data-id="cjyfxw36i000b7gnnfhuwzmh8" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spring-源码-分析/">spring 源码 分析</a></li></ul>
@@ -409,8 +440,7 @@
 <li>当官方发生变化的时候，可以与自己仓库对比，发现版本的变化</li>
 </ul>
 <ol start="2">
-<li><p>源码下载到本地，必须编译通过</p>
-<p>研究源码，却无法编译通过，这等于耍流氓</p>
+<li><p>源码下载到本地，必须编译通过   </p>
 </li>
 <li><p>在源码中创建业务代码或功能代码，这样可以使用当前的源码调试</p>
 </li>
@@ -425,7 +455,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liu-rui.github.io/2019/06/30/源码研究经验/" data-id="cjxjsgm5f0005f4nn7ywgabsj" class="article-share-link">Share</a>
+      <a data-url="https://liu-rui.github.io/2019/06/30/源码研究经验/" data-id="cjyfxw35l00057gnnedpxpgrr" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/源码-经验/">源码 经验</a></li></ul>
@@ -484,7 +514,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liu-rui.github.io/2019/06/28/sharding-jdbc源码分析/" data-id="cjxjsgm510000f4nnc9rid7y8" class="article-share-link">Share</a>
+      <a data-url="https://liu-rui.github.io/2019/06/28/sharding-jdbc源码分析/" data-id="cjyfxw35i00027gnnuwwx2epz" class="article-share-link">Share</a>
       
       
     </footer>
@@ -551,7 +581,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liu-rui.github.io/2019/06/27/mybatis-plus源码分析/" data-id="cjxjsgm590001f4nnvbqelicx" class="article-share-link">Share</a>
+      <a data-url="https://liu-rui.github.io/2019/06/27/mybatis-plus源码分析/" data-id="cjyfxw35500007gnnnfg4rqe9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -634,7 +664,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liu-rui.github.io/2019/06/27/spring-boot-admin的使用/" data-id="cjxjsgm5c0003f4nn0jultxta" class="article-share-link">Share</a>
+      <a data-url="https://liu-rui.github.io/2019/06/27/spring-boot-admin的使用/" data-id="cjyfxw35k00047gnnysvkalpf" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spring-boot-admin/">spring boot admin</a></li></ul>
@@ -690,7 +720,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liu-rui.github.io/2019/06/27/skywalking部署/" data-id="cjxjsgm5b0002f4nn0juuocpa" class="article-share-link">Share</a>
+      <a data-url="https://liu-rui.github.io/2019/06/27/skywalking部署/" data-id="cjyfxw35g00017gnn8yxw8qlm" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/skywalking/">skywalking</a></li></ul>
@@ -724,7 +754,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>版本：2.2.0.BUILD-SNAPSHOT</p>
+        <p>版本：2.1.x</p>
+<p>git clone 代码到本地</p>
+<p>mvn  -Dmaven.test.skip=true clean install  -rf :spring-boot-gradle-plugin</p>
 <ol>
 <li>源码</li>
 </ol>
@@ -849,35 +881,130 @@
 
 <p>spring boot 执行过程</p>
 <ul>
-<li>执行SpringApplication构造函数<ul>
-<li>赋值resourceLoader</li>
-<li>通过输入参数赋值primarySources</li>
-<li>计算出webApplicationType</li>
-<li>通过spring-factories文件得到ApplicationContextInitializer的实现类，赋值initializers</li>
-<li>通过spring-factories文件得到ApplicationListener的实现类，赋值listeners</li>
-<li>通过主动抛出异常得到main主方法所在类，赋值给mainApplicationClass</li>
-</ul>
-</li>
-<li>执行SpringApplication.run方法<ul>
-<li>configureHeadlessProperty()  配置为headless模式</li>
-<li>实例化对象SpringApplicationRunListeners，数据来源是通过spring-factories文件得到SpringApplicationRunListener的实现类,然后实例化得到的对象集合。目前只有一个EventPublishingRunListener；</li>
-<li>调用SpringApplicationRunListeners对象的starting方法；广播应用程序启动事件(ApplicationStartingEvent)</li>
-<li>根据输入参数args,构造ApplicationArguments</li>
-<li>configureIgnoreBeanInfo(environment)</li>
-<li>创建可配置环境(ConfigurableEnvironment)对象</li>
-<li>创建Banner</li>
-<li>创建应用程序上下文(ConfigurableApplicationContext)</li>
-<li>获取exceptionReporters</li>
-<li>调用prepareContext方法，准备上下文</li>
-<li>调用refreshContext方法，刷新上下文</li>
-<li>如果启动日志已经开启，打印启动耗时信息</li>
-<li>调用SpringApplicationRunListeners对象的started方法；广播应用程序已经启动事件(ApplicationStartedEvent)</li>
-<li>callRunners(context, applicationArguments);</li>
-<li>调用SpringApplicationRunListeners对象的running方法；广播应用程序已经就绪事件(ApplicationReadyEvent)</li>
-</ul>
+<li><p>执行SpringApplication构造函数</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.resourceLoader = resourceLoader;</span><br><span class="line"><span class="keyword">this</span>.primarySources = <span class="keyword">new</span> LinkedHashSet&lt;&gt;(Arrays.asList(primarySources));</span><br><span class="line"><span class="keyword">this</span>.webApplicationType = WebApplicationType.deduceFromClasspath();</span><br><span class="line">setInitializers((Collection) getSpringFactoriesInstances(ApplicationContextInitializer.class));</span><br><span class="line">setListeners((Collection) getSpringFactoriesInstances(ApplicationListener.class));</span><br><span class="line"><span class="keyword">this</span>.mainApplicationClass = deduceMainApplicationClass();</span><br></pre></td></tr></table></figure>
+
+
+
+
 </li>
 </ul>
-<p>org.springframework.boot.SpringApplicationRunListener接口的方法签名：</p>
+<pre><code>- 赋值resourceLoader
+
+- 通过输入参数赋值primarySources
+
+- 计算出webApplicationType
+
+- 通过spring-factories文件得到ApplicationContextInitializer的实现类，赋值initializers
+
+  ApplicationContextInitializer一共添加了6个：
+
+  org.springframework.boot.context.config.DelegatingApplicationContextInitializer
+
+  org.springframework.boot.autoconfigure.SharedMetadataReaderFactoryContextInitializer
+
+  org.springframework.boot.context.ContextIdApplicationContextInitializer
+
+  org.springframework.boot.context.ConfigurationWarningsApplicationContextInitializer
+
+  org.springframework.boot.web.context.ServerPortInfoApplicationContextInitializer
+
+  org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener
+
+- 通过spring-factories文件得到ApplicationListener的实现类，赋值listeners
+
+  ApplicationListener一共有10个：
+
+  org.springframework.boot.context.config.ConfigFileApplicationListener
+
+  org.springframework.boot.context.config.AnsiOutputApplicationListener
+
+  org.springframework.boot.context.logging.LoggingApplicationListener
+
+  org.springframework.boot.context.logging.ClasspathLoggingApplicationListener
+
+  org.springframework.boot.autoconfigure.BackgroundPreinitializer
+
+  org.springframework.boot.context.config.DelegatingApplicationListener
+
+  org.springframework.boot.builder.ParentContextCloserApplicationListener
+
+  org.springframework.boot.ClearCachesApplicationListener
+
+  org.springframework.boot.context.FileEncodingApplicationListener
+
+  org.springframework.boot.liquibase.LiquibaseServiceLocatorApplicationListener
+
+- 通过主动抛出异常得到main主方法所在类，赋值给mainApplicationClass</code></pre><ul>
+<li><p>执行SpringApplication.run方法</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">ConfigurableApplicationContext context = <span class="keyword">null</span>;</span><br><span class="line">Collection&lt;SpringBootExceptionReporter&gt; exceptionReporters = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">configureHeadlessProperty();</span><br><span class="line">SpringApplicationRunListeners listeners = getRunListeners(args);</span><br><span class="line">listeners.starting();</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    ApplicationArguments applicationArguments = <span class="keyword">new</span> DefaultApplicationArguments(args);</span><br><span class="line">    ConfigurableEnvironment environment = prepareEnvironment(listeners, applicationArguments);</span><br><span class="line">    configureIgnoreBeanInfo(environment);</span><br><span class="line">    Banner printedBanner = printBanner(environment);</span><br><span class="line">    context = createApplicationContext();</span><br><span class="line">    exceptionReporters = getSpringFactoriesInstances(SpringBootExceptionReporter.class,</span><br><span class="line">					<span class="keyword">new</span> Class[] &#123; ConfigurableApplicationContext.class &#125;, context);</span><br><span class="line">    prepareContext(context, environment, listeners, applicationArguments, printedBanner);</span><br><span class="line">    refreshContext(context);</span><br><span class="line">    afterRefresh(context, applicationArguments);</span><br><span class="line">    stopWatch.stop();</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.logStartupInfo) &#123;</span><br><span class="line">        <span class="keyword">new</span> StartupInfoLogger(<span class="keyword">this</span>.mainApplicationClass).logStarted(getApplicationLog(), stopWatch);</span><br><span class="line">    &#125;</span><br><span class="line">    listeners.started(context);</span><br><span class="line">    callRunners(context, applicationArguments);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">catch</span> (Throwable ex) &#123;</span><br><span class="line">    handleRunFailure(context, ex, exceptionReporters, listeners);</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> IllegalStateException(ex);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    listeners.running(context);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">catch</span> (Throwable ex) &#123;</span><br><span class="line">    handleRunFailure(context, ex, exceptionReporters, <span class="keyword">null</span>);</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> IllegalStateException(ex);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> context;</span><br></pre></td></tr></table></figure>
+
+
+
+
+</li>
+</ul>
+<pre><code>- configureHeadlessProperty()  配置为headless模式
+
+- 实例化对象SpringApplicationRunListeners，数据来源是通过spring-factories文件得到SpringApplicationRunListener的实现类,然后实例化得到的对象集合。目前只有一个EventPublishingRunListener；
+
+- 调用SpringApplicationRunListeners对象的starting方法；广播应用程序启动事件(ApplicationStartingEvent)
+
+- 根据输入参数args,构造ApplicationArguments
+
+- configureIgnoreBeanInfo(environment)
+
+- 创建可配置环境(ConfigurableEnvironment)对象
+
+- 创建Banner
+
+- 创建应用程序上下文(ConfigurableApplicationContext)
+
+- 获取exceptionReporters
+
+- 调用prepareContext方法，准备上下文
+
+  设置上下文的环境
+
+  调用postProcessApplicationContext(context)，前置处理上下文
+
+  applyInitializers(context)，触发所有的ApplicationContextInitializer对象的initialize方法
+
+  listeners.contextPrepared(context)，广播上下文已经准备好
+
+  添加单例springApplicationArguments &gt; applicationArguments类型
+
+  添加单例springBootBanner &gt; Banner
+
+  设置允许bean定义按照名称覆盖，默认为禁止覆盖
+
+  获取所有的源
+
+  按照源列表加载bean
+
+  ​    创建BeanDefinitionLoader
+
+  ​    调用BeanDefinitionLoader.load方法
+
+  ​        源可以是class,resource,package,字符串
+
+  listeners.contextLoaded(context)，广播上下文已经导入
+
+- 调用refreshContext方法，刷新上下文
+
+  调用上下文的refresh方法
+
+  注册上下文关闭回调
+
+- afterRefresh，上下文刷新后调用，空的，子类实现
+
+- 如果启动日志已经开启，打印启动耗时信息
+
+- 调用SpringApplicationRunListeners对象的started方法；广播应用程序已经启动事件(ApplicationStartedEvent)
+
+- callRunners(context, applicationArguments);
+
+- 调用SpringApplicationRunListeners对象的running方法；广播应用程序已经就绪事件(ApplicationReadyEvent)</code></pre><p>org.springframework.boot.SpringApplicationRunListener接口的方法签名：</p>
 <ul>
 <li>void starting()</li>
 <li>void environmentPrepared(ConfigurableEnvironment environment)</li>
@@ -964,7 +1091,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liu-rui.github.io/2019/06/26/spring-boot源码分析/" data-id="cjxjsgm61000ef4nntcmhwzjf" class="article-share-link">Share</a>
+      <a data-url="https://liu-rui.github.io/2019/06/26/spring-boot源码分析/" data-id="cjyfxw36m000e7gnnfi8zx8pg" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spring-boot/">spring boot</a></li></ul>

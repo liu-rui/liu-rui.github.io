@@ -7,18 +7,18 @@
   
   <title>spring-boot源码分析 | liu-rui的blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="版本：2.2.0.BUILD-SNAPSHOT  源码  git@gith  项目结构   spring-boot-project spring-boot spring-boot-actuator spring boot-actuator-autoconfigure spring-boot-autoconfigure spring-boot-cli spring-boot-dependencies">
+  <meta name="description" content="版本：2.1.x git clone 代码到本地 mvn  -Dmaven.test.skip=true clean install  -rf :spring-boot-gradle-plugin  源码  git@gith  项目结构   spring-boot-project spring-boot spring-boot-actuator spring boot-actuator-autoc">
 <meta name="keywords" content="spring boot">
 <meta property="og:type" content="article">
 <meta property="og:title" content="spring-boot源码分析">
 <meta property="og:url" content="https://liu-rui.github.io/2019/06/26/spring-boot源码分析/index.html">
 <meta property="og:site_name" content="liu-rui的blog">
-<meta property="og:description" content="版本：2.2.0.BUILD-SNAPSHOT  源码  git@gith  项目结构   spring-boot-project spring-boot spring-boot-actuator spring boot-actuator-autoconfigure spring-boot-autoconfigure spring-boot-cli spring-boot-dependencies">
+<meta property="og:description" content="版本：2.1.x git clone 代码到本地 mvn  -Dmaven.test.skip=true clean install  -rf :spring-boot-gradle-plugin  源码  git@gith  项目结构   spring-boot-project spring-boot spring-boot-actuator spring boot-actuator-autoc">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-06-27T01:54:00.392Z">
+<meta property="og:updated_time" content="2019-07-22T09:06:02.991Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="spring-boot源码分析">
-<meta name="twitter:description" content="版本：2.2.0.BUILD-SNAPSHOT  源码  git@gith  项目结构   spring-boot-project spring-boot spring-boot-actuator spring boot-actuator-autoconfigure spring-boot-autoconfigure spring-boot-cli spring-boot-dependencies">
+<meta name="twitter:description" content="版本：2.1.x git clone 代码到本地 mvn  -Dmaven.test.skip=true clean install  -rf :spring-boot-gradle-plugin  源码  git@gith  项目结构   spring-boot-project spring-boot spring-boot-actuator spring boot-actuator-autoc">
   
     <link rel="alternate" href="/atom.xml" title="liu-rui的blog" type="application/atom+xml">
   
@@ -87,7 +87,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>版本：2.2.0.BUILD-SNAPSHOT</p>
+        <p>版本：2.1.x</p>
+<p>git clone 代码到本地</p>
+<p>mvn  -Dmaven.test.skip=true clean install  -rf :spring-boot-gradle-plugin</p>
 <ol>
 <li>源码</li>
 </ol>
@@ -212,35 +214,130 @@
 
 <p>spring boot 执行过程</p>
 <ul>
-<li>执行SpringApplication构造函数<ul>
-<li>赋值resourceLoader</li>
-<li>通过输入参数赋值primarySources</li>
-<li>计算出webApplicationType</li>
-<li>通过spring-factories文件得到ApplicationContextInitializer的实现类，赋值initializers</li>
-<li>通过spring-factories文件得到ApplicationListener的实现类，赋值listeners</li>
-<li>通过主动抛出异常得到main主方法所在类，赋值给mainApplicationClass</li>
-</ul>
-</li>
-<li>执行SpringApplication.run方法<ul>
-<li>configureHeadlessProperty()  配置为headless模式</li>
-<li>实例化对象SpringApplicationRunListeners，数据来源是通过spring-factories文件得到SpringApplicationRunListener的实现类,然后实例化得到的对象集合。目前只有一个EventPublishingRunListener；</li>
-<li>调用SpringApplicationRunListeners对象的starting方法；广播应用程序启动事件(ApplicationStartingEvent)</li>
-<li>根据输入参数args,构造ApplicationArguments</li>
-<li>configureIgnoreBeanInfo(environment)</li>
-<li>创建可配置环境(ConfigurableEnvironment)对象</li>
-<li>创建Banner</li>
-<li>创建应用程序上下文(ConfigurableApplicationContext)</li>
-<li>获取exceptionReporters</li>
-<li>调用prepareContext方法，准备上下文</li>
-<li>调用refreshContext方法，刷新上下文</li>
-<li>如果启动日志已经开启，打印启动耗时信息</li>
-<li>调用SpringApplicationRunListeners对象的started方法；广播应用程序已经启动事件(ApplicationStartedEvent)</li>
-<li>callRunners(context, applicationArguments);</li>
-<li>调用SpringApplicationRunListeners对象的running方法；广播应用程序已经就绪事件(ApplicationReadyEvent)</li>
-</ul>
+<li><p>执行SpringApplication构造函数</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.resourceLoader = resourceLoader;</span><br><span class="line"><span class="keyword">this</span>.primarySources = <span class="keyword">new</span> LinkedHashSet&lt;&gt;(Arrays.asList(primarySources));</span><br><span class="line"><span class="keyword">this</span>.webApplicationType = WebApplicationType.deduceFromClasspath();</span><br><span class="line">setInitializers((Collection) getSpringFactoriesInstances(ApplicationContextInitializer.class));</span><br><span class="line">setListeners((Collection) getSpringFactoriesInstances(ApplicationListener.class));</span><br><span class="line"><span class="keyword">this</span>.mainApplicationClass = deduceMainApplicationClass();</span><br></pre></td></tr></table></figure>
+
+
+
+
 </li>
 </ul>
-<p>org.springframework.boot.SpringApplicationRunListener接口的方法签名：</p>
+<pre><code>- 赋值resourceLoader
+
+- 通过输入参数赋值primarySources
+
+- 计算出webApplicationType
+
+- 通过spring-factories文件得到ApplicationContextInitializer的实现类，赋值initializers
+
+  ApplicationContextInitializer一共添加了6个：
+
+  org.springframework.boot.context.config.DelegatingApplicationContextInitializer
+
+  org.springframework.boot.autoconfigure.SharedMetadataReaderFactoryContextInitializer
+
+  org.springframework.boot.context.ContextIdApplicationContextInitializer
+
+  org.springframework.boot.context.ConfigurationWarningsApplicationContextInitializer
+
+  org.springframework.boot.web.context.ServerPortInfoApplicationContextInitializer
+
+  org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener
+
+- 通过spring-factories文件得到ApplicationListener的实现类，赋值listeners
+
+  ApplicationListener一共有10个：
+
+  org.springframework.boot.context.config.ConfigFileApplicationListener
+
+  org.springframework.boot.context.config.AnsiOutputApplicationListener
+
+  org.springframework.boot.context.logging.LoggingApplicationListener
+
+  org.springframework.boot.context.logging.ClasspathLoggingApplicationListener
+
+  org.springframework.boot.autoconfigure.BackgroundPreinitializer
+
+  org.springframework.boot.context.config.DelegatingApplicationListener
+
+  org.springframework.boot.builder.ParentContextCloserApplicationListener
+
+  org.springframework.boot.ClearCachesApplicationListener
+
+  org.springframework.boot.context.FileEncodingApplicationListener
+
+  org.springframework.boot.liquibase.LiquibaseServiceLocatorApplicationListener
+
+- 通过主动抛出异常得到main主方法所在类，赋值给mainApplicationClass</code></pre><ul>
+<li><p>执行SpringApplication.run方法</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">ConfigurableApplicationContext context = <span class="keyword">null</span>;</span><br><span class="line">Collection&lt;SpringBootExceptionReporter&gt; exceptionReporters = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">configureHeadlessProperty();</span><br><span class="line">SpringApplicationRunListeners listeners = getRunListeners(args);</span><br><span class="line">listeners.starting();</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    ApplicationArguments applicationArguments = <span class="keyword">new</span> DefaultApplicationArguments(args);</span><br><span class="line">    ConfigurableEnvironment environment = prepareEnvironment(listeners, applicationArguments);</span><br><span class="line">    configureIgnoreBeanInfo(environment);</span><br><span class="line">    Banner printedBanner = printBanner(environment);</span><br><span class="line">    context = createApplicationContext();</span><br><span class="line">    exceptionReporters = getSpringFactoriesInstances(SpringBootExceptionReporter.class,</span><br><span class="line">					<span class="keyword">new</span> Class[] &#123; ConfigurableApplicationContext.class &#125;, context);</span><br><span class="line">    prepareContext(context, environment, listeners, applicationArguments, printedBanner);</span><br><span class="line">    refreshContext(context);</span><br><span class="line">    afterRefresh(context, applicationArguments);</span><br><span class="line">    stopWatch.stop();</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.logStartupInfo) &#123;</span><br><span class="line">        <span class="keyword">new</span> StartupInfoLogger(<span class="keyword">this</span>.mainApplicationClass).logStarted(getApplicationLog(), stopWatch);</span><br><span class="line">    &#125;</span><br><span class="line">    listeners.started(context);</span><br><span class="line">    callRunners(context, applicationArguments);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">catch</span> (Throwable ex) &#123;</span><br><span class="line">    handleRunFailure(context, ex, exceptionReporters, listeners);</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> IllegalStateException(ex);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    listeners.running(context);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">catch</span> (Throwable ex) &#123;</span><br><span class="line">    handleRunFailure(context, ex, exceptionReporters, <span class="keyword">null</span>);</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> IllegalStateException(ex);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> context;</span><br></pre></td></tr></table></figure>
+
+
+
+
+</li>
+</ul>
+<pre><code>- configureHeadlessProperty()  配置为headless模式
+
+- 实例化对象SpringApplicationRunListeners，数据来源是通过spring-factories文件得到SpringApplicationRunListener的实现类,然后实例化得到的对象集合。目前只有一个EventPublishingRunListener；
+
+- 调用SpringApplicationRunListeners对象的starting方法；广播应用程序启动事件(ApplicationStartingEvent)
+
+- 根据输入参数args,构造ApplicationArguments
+
+- configureIgnoreBeanInfo(environment)
+
+- 创建可配置环境(ConfigurableEnvironment)对象
+
+- 创建Banner
+
+- 创建应用程序上下文(ConfigurableApplicationContext)
+
+- 获取exceptionReporters
+
+- 调用prepareContext方法，准备上下文
+
+  设置上下文的环境
+
+  调用postProcessApplicationContext(context)，前置处理上下文
+
+  applyInitializers(context)，触发所有的ApplicationContextInitializer对象的initialize方法
+
+  listeners.contextPrepared(context)，广播上下文已经准备好
+
+  添加单例springApplicationArguments &gt; applicationArguments类型
+
+  添加单例springBootBanner &gt; Banner
+
+  设置允许bean定义按照名称覆盖，默认为禁止覆盖
+
+  获取所有的源
+
+  按照源列表加载bean
+
+  ​    创建BeanDefinitionLoader
+
+  ​    调用BeanDefinitionLoader.load方法
+
+  ​        源可以是class,resource,package,字符串
+
+  listeners.contextLoaded(context)，广播上下文已经导入
+
+- 调用refreshContext方法，刷新上下文
+
+  调用上下文的refresh方法
+
+  注册上下文关闭回调
+
+- afterRefresh，上下文刷新后调用，空的，子类实现
+
+- 如果启动日志已经开启，打印启动耗时信息
+
+- 调用SpringApplicationRunListeners对象的started方法；广播应用程序已经启动事件(ApplicationStartedEvent)
+
+- callRunners(context, applicationArguments);
+
+- 调用SpringApplicationRunListeners对象的running方法；广播应用程序已经就绪事件(ApplicationReadyEvent)</code></pre><p>org.springframework.boot.SpringApplicationRunListener接口的方法签名：</p>
 <ul>
 <li>void starting()</li>
 <li>void environmentPrepared(ConfigurableEnvironment environment)</li>
@@ -327,7 +424,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liu-rui.github.io/2019/06/26/spring-boot源码分析/" data-id="cjxjsgm61000ef4nntcmhwzjf" class="article-share-link">Share</a>
+      <a data-url="https://liu-rui.github.io/2019/06/26/spring-boot源码分析/" data-id="cjyfxw36m000e7gnnfi8zx8pg" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spring-boot/">spring boot</a></li></ul>
